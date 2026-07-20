@@ -51,17 +51,29 @@ The metric formula (see [methodology](methodology.md)):
 ```bash
 bundle install
 LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 bundle exec jekyll serve
-# → http://127.0.0.1:4000/lifetimes/
+# → http://127.0.0.1:4000/
 ```
 
 The `LANG` export avoids a Ruby US-ASCII encoding error when Jekyll reads UTF-8 files;
 GitHub Pages' own build environment already runs UTF-8, so it isn't needed there.
 
-## Deploy on GitHub Pages
+## Deploy → lifetimes.planetarycouncil.org
 
-1. Push to a repo named `lifetimes` (the `baseurl: "/lifetimes"` in `_config.yml` assumes
-   `username.github.io/lifetimes`). For a root/user site, set `baseurl: ""`.
-2. Repo → Settings → Pages → Build from branch → `main` / root.
+The repo is already configured for the subdomain: `CNAME` holds the hostname and
+`_config.yml` sets `baseurl: ""` (a domain root, not a `/project` path).
+
+1. **Push** to a GitHub repo:
+   ```bash
+   git remote add origin git@github.com:<user-or-org>/lifetimes.git
+   git push -u origin main
+   ```
+2. **DNS** — at the `planetarycouncil.org` provider, add:
+   | Type | Name | Value |
+   |---|---|---|
+   | CNAME | `lifetimes` | `<user-or-org>.github.io` |
+3. **GitHub Pages** — repo → Settings → Pages → Source: `main` / root. The custom domain
+   should auto-populate from the `CNAME` file; tick **Enforce HTTPS** once the certificate
+   provisions (can take a few minutes after DNS propagates).
 
 ## Repo map
 
