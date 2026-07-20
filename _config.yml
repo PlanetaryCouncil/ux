@@ -1,0 +1,32 @@
+title: Ministry of Fixing Civilisation
+tagline: One tiny UX fix. Thousands of human years. Every day.
+description: >-
+  A metric — lifetimes saved — for the UI/UX paper-cuts of civilisation.
+  Every case is one back-of-a-napkin calculation: facts cited, assumptions
+  explicit, difficulty-to-fix honest.
+
+# Served from a custom subdomain root, so baseurl is empty.
+# (It would be "/lifetimes" only if served from username.github.io/lifetimes.)
+baseurl: ""
+url: "https://lifetimes.planetarycouncil.org"
+
+theme: minima
+
+collections:
+  cases:
+    output: true
+    permalink: /cases/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: cases
+    values:
+      layout: case
+
+exclude:
+  - ROADMAP.md
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

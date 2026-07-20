@@ -1,0 +1,83 @@
+---
+layout: default
+---
+<article class="case">
+  <a class="back" href="{{ '/' | relative_url }}">← All cases</a>
+
+  <header class="case-head">
+    <div class="case-num">Case {{ page.number | prepend: '00' | slice: -3, 3 }}</div>
+    <h1>{{ page.title }}</h1>
+    {% if page.tagline %}<p class="tagline">{{ page.tagline }}</p>{% endif %}
+
+    <div class="headline-metric">
+      <div class="metric-range">
+        <span class="lo">{{ page.lifetimes.low }}</span>
+        <span class="dash">–</span>
+        <span class="hi">{{ page.lifetimes.high }}</span>
+      </div>
+      <div class="metric-label">human lifetimes wasted per year</div>
+      <div class="metric-headline">best single estimate: <strong>~{{ page.lifetimes.headline }}</strong></div>
+    </div>
+
+    <div class="difficulty difficulty-{{ page.difficulty }}">
+      <span class="diff-label">Difficulty to fix</span>
+      <span class="diff-value">{{ page.difficulty }}</span>
+    </div>
+  </header>
+
+  {% if page.facts %}
+  <section class="napkin">
+    <h2>Facts <span class="tag tag-fact">cited</span></h2>
+    <div class="table-scroll">
+    <table class="data">
+      <tbody>
+      {% for f in page.facts %}
+        <tr>
+          <th>{{ f.label }}</th>
+          <td class="val">{{ f.value }}</td>
+          <td class="src">{% if f.url %}<a href="{{ f.url }}">{{ f.source }}</a>{% else %}{{ f.source }}{% endif %}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    </div>
+  </section>
+  {% endif %}
+
+  {% if page.assumptions %}
+  <section class="napkin">
+    <h2>Assumptions <span class="tag tag-est">low → high</span></h2>
+    <div class="table-scroll">
+    <table class="data estimates">
+      <thead>
+        <tr><th>What we can't measure</th><th class="num">low</th><th class="num mid">likely</th><th class="num">high</th></tr>
+      </thead>
+      <tbody>
+      {% for a in page.assumptions %}
+        <tr>
+          <th>{{ a.label }}{% if a.note %}<span class="note">{{ a.note }}</span>{% endif %}</th>
+          <td class="num">{{ a.low }}</td>
+          <td class="num mid">{{ a.headline }}</td>
+          <td class="num">{{ a.high }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    </div>
+  </section>
+  {% endif %}
+
+  {% if page.owner %}
+  <section class="fix-box">
+    <h2>Who can fix it</h2>
+    <dl>
+      <dt>Owner</dt><dd>{{ page.owner }}</dd>
+      <dt>Channel</dt><dd>{{ page.channel }}</dd>
+    </dl>
+  </section>
+  {% endif %}
+
+  <section class="body">
+    {{ content }}
+  </section>
+</article>
