@@ -29,6 +29,17 @@ Unknowns aren't single numbers, they're ranges. Each case shows a **low → like
 **4. Second-order effects are directional, not precise.**
 Frustration cascades, abandonment, defensive workarounds — these are real and they only ever push the number *up*. We list them as "this makes it worse," never as a fake decimal.
 
+## Rule zero: unfinished work is marked, not hidden
+
+Every case shows its open questions in an amber **TODO** box, and carries a warning badge at the
+top and in the case list until they're closed. Unverified repro, a number resting on a single
+source, an extrapolation doing more work than its evidence supports — these get stated plainly on
+the page rather than quietly omitted.
+
+This isn't an apology for incomplete work. It's the same rule as the rest: a reader should be able
+to see exactly how much weight each number can bear. A case that hides its weak joint is worth less
+than one that points at it.
+
 ## And one more column: difficulty to fix
 
 A wasted-time number is only outrage. The metric becomes *action* when paired with how easy the fix is. Most of these are **difficulty: none** — a prefilled field, five lines of code, a pattern that a government design system already documented years ago. That gap — enormous harm, trivial fix — is the entire point of the Ministry.

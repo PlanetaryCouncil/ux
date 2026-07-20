@@ -3,6 +3,7 @@ number: 2
 title: "An hour of form-filling, gone on one accidental refresh"
 tagline: "You fill a giant browser form — say the 8-page IRS W-8BEN-E. One ⌘R, back-swipe, or tab close, and it's all erased. No warning. No draft. Start over."
 difficulty: easy
+todo: "Cross-browser check pending"
 lifetimes:
   low: 7
   headline: 52
@@ -84,10 +85,18 @@ mandates "save and come back later" for long government forms. It's just not dep
 
 ## Repro status
 
-- ✅ **Confirmed by hand** — typed into the PDF, closed, data gone.
-- ⚠️ **Cross-browser table still TODO:** the "no warning on refresh" claim must be verified
-  against *current* Chrome / Firefox / Safari / Edge before publishing (Chrome's PDF behaviour
-  has shifted across versions). Screen-record each for the Chromium issue.
+✅ **Confirmed by hand** — typed into the fillable PDF, closed it, data gone. No warning.
+
+<div class="todo" markdown="1">
+**Cross-browser comparison not yet done.** The "no warning on refresh" claim is confirmed
+only for the case above. Chrome's PDF-viewer behaviour has shifted across versions, so before
+this is cited anywhere it needs verifying against *current* Chrome, Firefox, Safari and Edge —
+screen-recorded, as a comparison table, for the Chromium issue.
+
+Until that's done, treat the browser-layer claim as **one reproduction, not a survey.**
+The time math above doesn't depend on it: it rests on long web forms generally, not on any
+one browser's PDF handling.
+</div>
 
 ## Difficulty to fix: easy
 

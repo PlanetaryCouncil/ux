@@ -8,6 +8,9 @@
   --line: #eadfe6;
   --muted: #7a6f82;
   --ok: #17a34a;
+  --warn: #b45309;
+  --warn-bg: rgba(217,119,6,.09);
+  --warn-line: rgba(217,119,6,.32);
   --shadow: 0 1px 3px rgba(74,43,122,.08), 0 8px 24px rgba(74,43,122,.06);
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui, sans-serif;
@@ -16,6 +19,7 @@
   :root {
     --ink: #f3edf7; --cream: #14101c; --card: #1e1826; --line: #322a3d;
     --muted: #a99db4; --shadow: 0 1px 3px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    --warn: #fbbf24; --warn-bg: rgba(251,191,36,.10); --warn-line: rgba(251,191,36,.30);
   }
 }
 * { box-sizing: border-box; }
@@ -148,6 +152,35 @@ table.data thead .mid { color: var(--pink); }
 
 .callout { background: rgba(230,0,126,.06); border: 1px solid rgba(230,0,126,.18); border-radius: 12px; padding: 1rem 1.25rem; margin: 1.5rem 0; }
 .callout strong { color: var(--pink); }
+
+/* ---------- TODO / unresolved marker ---------- */
+.todo {
+  background: var(--warn-bg); border: 1px solid var(--warn-line);
+  border-left: 4px solid var(--warn); border-radius: 12px;
+  padding: 1rem 1.25rem 1.1rem; margin: 1.75rem 0;
+}
+.todo::before {
+  content: "⚠ TODO — UNRESOLVED";
+  display: block; font-size: .7rem; font-weight: 800; letter-spacing: .09em;
+  color: var(--warn); margin-bottom: .5rem;
+}
+.todo > :first-of-type { margin-top: 0; }
+.todo > :last-child { margin-bottom: 0; }
+.todo p { font-size: .95rem; }
+.todo a { color: var(--warn); text-decoration: underline; }
+
+.todo-badge {
+  display: inline-flex; align-items: center; gap: .45rem;
+  background: var(--warn-bg); color: var(--warn); border: 1px solid var(--warn-line);
+  padding: .4rem .9rem; border-radius: 999px; font-weight: 700; font-size: .82rem;
+  margin-left: .5rem;
+}
+.card-todo {
+  display: inline-block; background: var(--warn-bg); color: var(--warn);
+  font-size: .68rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase;
+  padding: .15rem .45rem; border-radius: 5px; margin-left: .5rem; vertical-align: middle;
+}
+@media (max-width: 560px) { .todo-badge { margin-left: 0; margin-top: .5rem; } }
 
 .equation {
   font-family: var(--mono); font-size: 1.05rem; font-weight: 600;

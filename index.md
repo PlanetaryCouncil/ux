@@ -29,7 +29,7 @@ title: Lifetimes saved
   <a class="case-card" href="{{ c.url | relative_url }}">
     <div class="row">
       <div>
-        <div class="kicker">Case {{ c.number | prepend: '00' | slice: -3, 3 }} · fix difficulty: {{ c.difficulty }}</div>
+        <div class="kicker">Case {{ c.number | prepend: '00' | slice: -3, 3 }} · fix difficulty: {{ c.difficulty }}{% if c.todo %}<span class="card-todo">TODO</span>{% endif %}</div>
         <h3>{{ c.title }}</h3>
       </div>
       <div class="card-metric">{{ c.lifetimes.low }}–{{ c.lifetimes.high }}<small>lifetimes / yr</small></div>

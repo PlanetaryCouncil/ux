@@ -23,6 +23,7 @@ layout: default
       <span class="diff-label">Difficulty to fix</span>
       <span class="diff-value">{{ page.difficulty }}</span>
     </div>
+    {% if page.todo %}<span class="todo-badge">⚠ {{ page.todo }}</span>{% endif %}
   </header>
 
   {% if page.facts %}

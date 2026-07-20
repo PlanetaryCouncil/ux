@@ -3,6 +3,7 @@ number: 3
 title: "Cookie banners: click the same box on every site, forever"
 tagline: "Shut up and give me the cookie. Whether you want to accept or reject, you're forced to decide again on every site you've ever visited — a choice a browser could make once."
 difficulty: moderate
+todo: "Source & extrapolation to firm up"
 lifetimes:
   low: 3000
   headline: 4800
@@ -61,6 +62,20 @@ EU's per-capita clicking), the napkin lands at:
 
 Even the low end — **~3,000 lifetimes a year** — is **fifty times** cases 001 and 002 combined.
 This is the monster. Cookie banners are civilisation's single largest self-inflicted UI paper-cut.
+
+<div class="todo" markdown="1">
+**Two things to firm up before this number is quoted as settled.**
+
+1. The 575M-hour figure is widely repeated but traces back to a **single analysis**
+   ([Legiscope](https://www.legiscope.com/blog/hidden-productivity-drain-cookie-banners.html)),
+   not a peer-reviewed study. Its own assumptions (banners per user, seconds each) need reading
+   before we lean on it — repetition across blogs is not independent confirmation.
+2. The **worldwide** extension is our extrapolation, not anyone's measurement. The EU portion
+   (~900 lifetimes/yr) is the only part with a cited source behind it.
+
+Per [the methodology](/methodology/), the honest floor here is the EU figure. The global number
+is a labelled estimate, and it is doing the heavy lifting in the headline.
+</div>
 
 ## Why "give me the cookie" is the *right* instinct
 
