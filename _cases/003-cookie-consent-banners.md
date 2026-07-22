@@ -77,6 +77,21 @@ Per [the methodology](/methodology/), the honest floor here is the EU figure. Th
 is a labelled estimate, and it is doing the heavy lifting in the headline.
 </div>
 
+## The aggravated form — the blocking consent wall
+
+The polite banner sits at the edge of the screen and lets you read. Its nastier cousin **greys
+out the entire page and blocks it** until you engage. This crosses a line: the content is already
+loaded — it *exists* behind the dimming — and it's being deliberately withheld until you comply.
+That's not a request, it's **hostage-taking.** "Please consent" becomes "consent or you get nothing."
+
+It almost always ships with the reject-parity violation: **Accept all** is one bright button, while
+**Reject** is buried behind "Manage preferences → toggle everything off → confirm." GDPR explicitly
+requires reject to be as easy as accept — so the wall is usually *illegal as well as gross*, and
+doubly pointless, because no one cornered into clicking has meaningfully consented to anything.
+
+Same through-line as the rest of this site: the system refuses to let **no** be easy, and makes the
+adverse action the path of least resistance.
+
 ## Why "give me the cookie" is the *right* instinct
 
 The banner pretends to be a choice. In practice it's a reflex — everyone clicks the biggest
