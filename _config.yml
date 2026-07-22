@@ -26,6 +26,7 @@ defaults:
 
 exclude:
   - ROADMAP.md
+  - BACKLOG.md
   - README.md
   - Gemfile
   - Gemfile.lock
