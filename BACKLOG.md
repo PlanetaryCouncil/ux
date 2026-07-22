@@ -32,6 +32,15 @@ toward the other screen anywhere else hits an invisible wall.
 **Harm:** wasted time · **Cause:** accident · **Fix difficulty:** easy · cross-platform (mac/Win/Linux).
 **To research:** multi-monitor user counts; per-crossing seconds; whether any OS already does edge-routing.
 
+### Rescue UI lands on the broken/dead screen
+When a laptop's own screen is broken, its windows — including the **Displays settings panel you
+need to fix the problem** — can open on the dead display, where you can't see them to move them.
+A catch-22: the tool to recover is trapped behind the failure it's meant to recover from.
+**Principle:** recovery/rescue UI must appear where the user can actually see it — mirror the
+Displays panel (and misplaced windows) onto *all* screens, or detect a non-responsive display and
+reassign to a live one. **Harm:** lost access / wasted time · **Cause:** accident (no failure-mode
+design). Pairs naturally with case 004 as the "when a display fails" half.
+
 ### Display settings reflow on one change
 Changing one monitor's resolution silently rearranges the whole multi-display layout the
 user had deliberately set. One change cascades; the layout doesn't hold its shape.
