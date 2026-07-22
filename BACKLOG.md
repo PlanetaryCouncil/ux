@@ -32,6 +32,19 @@ toward the other screen anywhere else hits an invisible wall.
 **Harm:** wasted time · **Cause:** accident · **Fix difficulty:** easy · cross-platform (mac/Win/Linux).
 **To research:** multi-monitor user counts; per-crossing seconds; whether any OS already does edge-routing.
 
+### "Save as PDF" from Print doesn't land in Downloads
+Print a Gmail message (or any page) to PDF and it saves via a separate Save-As path — not the
+Downloads folder, and it never appears in the browser's download list. But the mental model is
+"I made a file in the browser → it's in Downloads." So you look there, it's absent, you hunt.
+**Principle:** two mechanisms that both produce a saved file (download vs print-to-PDF) must
+behave consistently — same default destination, same visibility in history. One outcome, one model.
+**Metric:** ~10–20s per hunt · users: anyone who prints-to-PDF (very common) · frequency:
+occasional and *partly self-limiting* — users eventually learn where it lands, so the harm is
+front-loaded onto each new/infrequent user, not perpetual · fix difficulty: easy (route to Downloads
+and/or register it in the download list with a "show in folder" confirmation).
+**Rough napkin:** ~300M occasional users × ~10 confused hunts/yr × 15s ≈ ~10–40 lifetimes/yr —
+modest but real. **Harm:** wasted time · **Cause:** accident (two inconsistent save paths).
+
 ### Rescue UI lands on the broken/dead screen
 When a laptop's own screen is broken, its windows — including the **Displays settings panel you
 need to fix the problem** — can open on the dead display, where you can't see them to move them.
@@ -67,6 +80,15 @@ recording is the only copy of a spoken idea.
 **Principle:** when an action is irreversible and the content unique, the SAFE choice must be
 the default AND sit still. Breaks both at once. **Harm:** lost work · **Cause:** accident ·
 **Fix difficulty:** none. (Fuses 001's wrong-default with 002's data-loss.)
+**Deeper principle — durable-by-default:** capture tools shouldn't hold the recording in volatile
+state awaiting a "save" a mis-click can destroy. Stream it to durable storage *as it records*;
+"Stop" merely finalises an already-safe file; "Discard" becomes the effortful, undo-able action
+(drop to a short-lived trash, never the void). The reflex preserves; only intent destroys.
+Storage is ~free, a unique spoken idea is priceless-and-unrecoverable — so persisting redundantly
+is the only rational default. Two layers, respecting both site lessons at once:
+(a) **local durability = default, always** — write-as-you-go, crash/mis-click-safe, zero privacy cost;
+(b) **off-device backup = consented layer, never silent** — else you rebuild the surveillance the
+cookie/tracking thread objected to. Durability and surveillance are one mechanism aimed two ways.
 
 ### Hawaii false missile alert — the proof case
 13 Jan 2018: statewide "ballistic missile inbound, THIS IS NOT A DRILL" for 38 minutes,
@@ -77,6 +99,21 @@ the category is real and dangerous at the limit. Everything else is this pattern
 **Harm:** catastrophe · **Cause:** accident (design negligence) · **Note:** the red/green
 buttons are the meme; the real UI was a plain dropdown of text links — blander, arguably worse.
 **To source carefully:** exact wording, the FCC report, what the redesign changed. (Accuracy matters — this one gets scrutiny.)
+
+### Post-purchase warranty upsell ("Freedom Package") — SCOPE-PENDING
+Outbound call after purchase re-pitching an extended warranty the buyer already declined at
+checkout. £3.49/mo (drip-priced to hide ~£42/yr) on a cheap, reliable induction hob, on top of
+the manufacturer warranty and statutory rights (UK Consumer Rights Act: up to 6 yrs). Stacked
+tricks: (1) "no" treated as not-yet-yes; (2) monthly drip hides the annual total; (3) name
+("Freedom") does emotional work the product contradicts; (4) sells coverage already owned twice.
+Grounded: UK Competition Commission investigated this exact market; Which? calls extended
+warranties poor value; the 2005 Order gives a 45-day full-refund cancellation right.
+**Harm:** money + wasted time + disrespect · **Cause:** INTENT (dark pattern) · **Fix difficulty:**
+trivial technically, "never" commercially.
+**⚠ Scope question, unresolved:** this is a *commercial* dark pattern, not a UI bug — the "intent"
+wing alongside Adobe. Open decision: does the Ministry stay UI-only (this goes to a sister list),
+or widen to "disrespectful design" split by accident-vs-intent? Logged here as a holding pen, not
+a scope commitment.
 
 ### Adobe "unlimited generations" — the first intent case
 A banner reading "Get unlimited generations" that means unlimited-on-select-models-in-one-app-
