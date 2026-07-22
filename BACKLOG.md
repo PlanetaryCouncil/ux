@@ -45,6 +45,24 @@ and/or register it in the download list with a "show in folder" confirmation).
 **Rough napkin:** ~300M occasional users × ~10 confused hunts/yr × 15s ≈ ~10–40 lifetimes/yr —
 modest but real. **Harm:** wasted time · **Cause:** accident (two inconsistent save paths).
 
+### VR boundary re-confirmed on every context switch
+Set the Quest stationary boundary (guardian) yesterday; set it again today in a game; switch games
+and it asks you to confirm the boundary *again* — nothing changed, you set it minutes ago. A
+settled, recently-confirmed piece of state, re-interrogated on every context switch, breaking
+immersion each time.
+**Principle:** don't re-ask a question already answered — persist recently-confirmed state and
+reuse it silently; re-prompt only when something actually changed. **Steelman:** the guardian is a
+safety feature, so re-confirming is legitimate *if* the system is unsure you're in the same space —
+but Quest already does inside-out tracking / room recognition and can usually tell it *is* the same
+space. Fix = "confirm only on genuine uncertainty," same lesson as the sleep-disconnect case: don't
+dramatise the routine.
+**Metric:** ~5–20s + an immersion break per prompt · users: Quest active base (tens of millions —
+smaller than other cases, but a *bellwether* that scales with VR/AR) · frequency: every game switch /
+re-don · fix difficulty: moderate (trust the space-match the hardware already computes).
+**Rough napkin:** ~15M active × ~3 redundant confirms/day × 10s ≈ ~70 lifetimes/yr today (band ~10–300),
+rising with the platform. **Harm:** wasted time + broken immersion · **Cause:** accident (re-asking
+settled state — same disease as the cookie re-ask and warranty re-pitch: "done" isn't durable).
+
 ### Rescue UI lands on the broken/dead screen
 When a laptop's own screen is broken, its windows — including the **Displays settings panel you
 need to fix the problem** — can open on the dead display, where you can't see them to move them.
