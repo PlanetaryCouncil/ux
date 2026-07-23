@@ -126,6 +126,20 @@ the whole multi-monitor layout** you deliberately set. One change cascades; the 
 doesn't hold its shape, so you re-drag windows you'd already placed. A setting should survive a
 neighbour changing.
 
+## It gets worse with every display you add
+
+Two displays give you one shared border and two dead segments. Add a third — the common real setup:
+a laptop below, two monitors above at different heights and resolutions — and it compounds
+combinatorially. Now there are multiple boundaries, each still overlap-limited; **corner dead-zones**
+where three displays almost-but-don't-quite meet; and journeys that force you to route A→B→C because
+A and C share no edge at all. Worse, mismatched sizes *force* the offset "staircase" arrangement, and
+every offset manufactures another stretch of wall.
+
+So the tax scales faster than the monitor count — and it lands hardest on exactly the people who cross
+displays most: the multi-monitor power users the whole setup exists to serve. Seen in the wild: a real
+three-panel desk — laptop, a Philips monitor, a third display, all different sizes — arranged in precisely
+that staircase, every seam between them a place the cursor can stick.
+
 ## Companion — when a display *fails*
 
 The same setup hides a crueller catch-22. If a laptop's own screen breaks, its windows — **including
