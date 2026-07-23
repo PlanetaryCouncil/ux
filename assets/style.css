@@ -99,6 +99,13 @@ a:hover { text-decoration: underline; }
 .metric-label { font-weight: 600; margin-top: .4rem; }
 .metric-headline { color: var(--muted); font-size: .95rem; margin-top: .4rem; }
 
+.headline-metric.proof { border-color: var(--purple); }
+.proof-tag { font-size: .8rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--purple); }
+@media (prefers-color-scheme: dark) { .proof-tag { color: #b79be0; } }
+.proof-line { font-size: clamp(1.4rem, 5vw, 2.1rem); font-weight: 800; letter-spacing: -.02em; margin: .4rem 0; color: var(--ink); }
+.card-metric.proof-metric { color: var(--purple); }
+@media (prefers-color-scheme: dark) { .card-metric.proof-metric { color: #b79be0; } }
+
 .difficulty { display: inline-flex; align-items: center; gap: .6rem; padding: .4rem .9rem; border-radius: 999px; font-weight: 700; }
 .difficulty .diff-label { font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; opacity: .7; font-weight: 700; }
 .difficulty .diff-value { text-transform: uppercase; letter-spacing: .04em; }

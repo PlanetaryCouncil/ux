@@ -126,6 +126,15 @@ the whole multi-monitor layout** you deliberately set. One change cascades; the 
 doesn't hold its shape, so you re-drag windows you'd already placed. A setting should survive a
 neighbour changing.
 
+## Companion — when a display *fails*
+
+The same setup hides a crueller catch-22. If a laptop's own screen breaks, its windows — **including
+the Displays settings panel you need to fix the problem** — can open on the dead display, where you
+can't see them to drag them anywhere. The one tool that recovers you is trapped behind the failure it's
+meant to recover from. The fix is the same spirit as the dead-zone: **rescue UI must appear where the
+user can actually see it** — mirror the Displays panel (and any window that lands on a non-responsive
+display) onto every screen, or detect a dead display and reassign its windows to a live one.
+
 ## Difficulty to fix: easy
 
 > The pointer stops against a wall that was never drawn, because the OS is matching pixel
