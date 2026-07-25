@@ -28,6 +28,8 @@ exclude:
   - ROADMAP.md
   - BACKLOG.md
   - README.md
+  - DEVELOPMENT.md
+  - Makefile
   - Gemfile
   - Gemfile.lock
   - vendor
