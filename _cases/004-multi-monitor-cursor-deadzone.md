@@ -4,6 +4,7 @@ title: "Your cursor hits an invisible wall between mismatched monitors"
 tagline: "A big monitor above, a laptop below. Push the pointer down from the side and it stops dead — you can only cross where the two screens happen to line up."
 difficulty: easy
 todo: "Population & frequency need sourcing"
+platforms: [Apple, Microsoft, Linux]
 lifetimes:
   low: 100
   headline: 950

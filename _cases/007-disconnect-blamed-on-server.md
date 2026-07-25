@@ -4,6 +4,7 @@ title: "You closed the lid; it says the server is broken"
 tagline: "Sleep, a tunnel, a Wi-Fi blip — the connection drops and the app announces a Server Error and sends you to check the status page. The server was fine. Your device just went to sleep."
 difficulty: easy
 todo: "Frequency & population are estimates"
+platforms: [Apps, Web]
 lifetimes:
   low: 5
   headline: 60

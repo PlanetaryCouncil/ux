@@ -32,6 +32,12 @@ layout: default
       <span class="diff-value">{{ page.difficulty }}</span>
     </div>
     {% if page.todo %}<span class="todo-badge">⚠ {{ page.todo }}</span>{% endif %}
+
+    {% if page.platforms %}
+    <div class="platform-tags">
+      {% for p in page.platforms %}<span class="pill plat-{{ p | downcase }}">{{ p }}</span>{% endfor %}
+    </div>
+    {% endif %}
   </header>
 
   {% if page.facts %}

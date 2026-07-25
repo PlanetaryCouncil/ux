@@ -4,6 +4,7 @@ oneoff: true
 title: "Hawaii, 2018: the proof that the pattern kills"
 tagline: "For 38 minutes, a whole state believed a ballistic missile was inbound — because a high-stakes, irreversible alert had no confirmation step and no way to take it back."
 difficulty: moderate
+platforms: [Government]
 proof_line: "38 minutes · ~1.4M people · no confirmation · no undo"
 facts:
   - label: "Date"

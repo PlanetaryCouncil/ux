@@ -4,6 +4,7 @@ title: "The recording that deletes itself if you flinch"
 tagline: "You dictate an idea. To keep it you must hit confirm — but the default, resting-finger action is discard, and the button moved since you last looked. One reflex and the only copy is gone."
 difficulty: none
 todo: "Population & frequency are estimates"
+platforms: [Apps]
 lifetimes:
   low: 5
   headline: 30

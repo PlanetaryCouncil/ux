@@ -4,6 +4,7 @@ title: "You printed to PDF — now go and find where it went"
 tagline: "Print a page to PDF and your brain files it under \"downloaded a file → it's in Downloads.\" It isn't, and it never shows in the download list. So you hunt."
 difficulty: easy
 todo: "Frequency & population are estimates"
+platforms: [Web, Google]
 lifetimes:
   low: 10
   headline: 30

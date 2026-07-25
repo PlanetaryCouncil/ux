@@ -4,6 +4,7 @@ title: "An hour of form-filling, gone on one accidental refresh"
 tagline: "You fill a giant browser form — say the 8-page IRS W-8BEN-E. One ⌘R, back-swipe, or tab close, and it's all erased. No warning. No draft. Start over."
 difficulty: easy
 todo: "Cross-browser check pending"
+platforms: [Web, Google, Government]
 lifetimes:
   low: 7
   headline: 52

@@ -4,6 +4,7 @@ title: "Cookie banners: click the same box on every site, forever"
 tagline: "Shut up and give me the cookie. Whether you want to accept or reject, you're forced to decide again on every site you've ever visited — a choice a browser could make once."
 difficulty: moderate
 todo: "Source & extrapolation to firm up"
+platforms: [Web, Government]
 lifetimes:
   low: 3000
   headline: 4800

@@ -4,6 +4,7 @@ title: "You can see the junk file in the Save dialog — you just can't delete i
 tagline: "The Save/Open dialog is a full file browser: navigate, search, New Folder. But it's crippled — no delete, no cleanup. Spot a file to bin while you're saving and you must remember to do it later in Finder. You won't."
 difficulty: easy
 todo: "Frequency & population are estimates"
+platforms: [Apple, Microsoft]
 lifetimes:
   low: 30
   headline: 350

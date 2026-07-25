@@ -4,6 +4,7 @@ title: "You just downloaded it — but \"Recents\" only counts what you've opene
 tagline: "On the Mac, Recents lists files you've opened, not files you saved or downloaded. So the file that arrived thirty seconds ago — the most recent thing you own — isn't in Recents. You go looking. It isn't there."
 difficulty: easy
 todo: "macOS indexing behaviour & frequency need checking"
+platforms: [Apple]
 lifetimes:
   low: 10
   headline: 80

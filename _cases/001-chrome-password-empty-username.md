@@ -3,6 +3,7 @@ number: 1
 title: "Chrome asks which email to save — right after you typed it"
 tagline: "You reset your password from inside your email. Chrome offers to save it, with the username field blank — the one thing it just watched you type."
 difficulty: none
+platforms: [Google]
 lifetimes:
   low: 8
   headline: 30

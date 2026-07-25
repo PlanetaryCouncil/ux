@@ -221,6 +221,28 @@ table.data thead .mid { color: var(--pink); }
   .equation { font-size: .95rem; padding: .85rem .75rem; }
 }
 
+/* ---------- platform pills + filter ---------- */
+.pill { display: inline-flex; align-items: center; gap: .45em; font-size: .72rem; font-weight: 700;
+  padding: .25rem .65rem; border-radius: 999px; background: rgba(128,128,128,.12); color: var(--muted);
+  letter-spacing: .02em; line-height: 1; white-space: nowrap; }
+.pill::before { content: ""; width: .5em; height: .5em; border-radius: 50%; background: var(--muted); flex: none; }
+.pill.plat-google::before    { background: #4285f4; }
+.pill.plat-apple::before     { background: #8e8e93; }
+.pill.plat-microsoft::before { background: #00a4ef; }
+.pill.plat-meta::before      { background: #0866ff; }
+.pill.plat-web::before       { background: #17a34a; }
+.pill.plat-linux::before     { background: #f59e0b; }
+.pill.plat-apps::before      { background: #e6007e; }
+.pill.plat-government::before{ background: #b45309; }
+.platform-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .8rem; }
+
+.filter-bar { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0 0 1.5rem; }
+.filter-bar .pill { cursor: pointer; border: 1px solid var(--line); background: var(--card); padding: .4rem .8rem; font-size: .78rem; }
+.filter-bar .pill span { opacity: .55; font-weight: 600; margin-left: .1em; }
+.filter-bar .pill.active { background: var(--pink); color: #fff; border-color: var(--pink); }
+.filter-bar .pill.active::before { background: #fff; }
+.filter-bar .pill.active span { opacity: .8; }
+
 /* methodology / prose pages */
 .prose h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); letter-spacing: -.03em; }
 .prose h2 { margin-top: 2rem; letter-spacing: -.01em; }

@@ -4,6 +4,7 @@ title: "VR asks you to re-draw the boundary you set five minutes ago"
 tagline: "You set the play boundary yesterday. And again today. Switch games and it asks you to confirm it once more — same room, same you, nothing changed. Every prompt yanks you out of the world you were in."
 difficulty: moderate
 todo: "Active-user count & frequency are estimates"
+platforms: [Meta]
 lifetimes:
   low: 10
   headline: 70
