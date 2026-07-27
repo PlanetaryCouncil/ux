@@ -109,6 +109,22 @@ you choose once.** That serves *everyone*:
 
 Either way, **nobody clicks.** The friction, not the privacy, is the enemy.
 
+<div class="info" markdown="1">
+**[killthecookiebanner.eu](https://killthecookiebanner.eu/)** — a coalition of seven civil-society
+organisations including **noyb**, **EDRi**, the **EFF** and **BEUC** — is campaigning for exactly the
+fix described below: browser-level automated signals that carry your privacy preference, so you set it
+once instead of clicking a box on every site. They're backing the European Commission's autumn 2025
+proposal and asking people to contact their MEP or national representative.
+
+Their sharpest number, and it demolishes the consent fiction: **up to 90% of users click "yes" — while
+only about 3% actually want tracking.** (Figures as cited by the campaign; we haven't traced them to
+the underlying study.)
+
+Worth repeating their own caveat, because it's careful: they explicitly **do not** endorse the rest of
+the Digital Omnibus reform package, which they consider likely to weaken people's rights. Supporting
+the browser-signal fix isn't the same as supporting everything it's bundled with.
+</div>
+
 ## The fix already exists — it just isn't mandated
 
 - **Global Privacy Control (GPC)** is a browser-level "here's my standing preference" signal.

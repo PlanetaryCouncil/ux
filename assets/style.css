@@ -172,6 +172,26 @@ table.data thead .mid { color: var(--pink); }
 .callout { background: rgba(230,0,126,.06); border: 1px solid rgba(230,0,126,.18); border-radius: 12px; padding: 1rem 1.25rem; margin: 1.5rem 0; }
 .callout strong { color: var(--pink); }
 
+/* ---------- FYI / info box ---------- */
+.info {
+  background: rgba(37,99,235,.06); border: 1px solid rgba(37,99,235,.22);
+  border-left: 4px solid #2563eb; border-radius: 12px;
+  padding: 1rem 1.25rem 1.1rem; margin: 1.75rem 0;
+}
+.info::before {
+  content: "↗ FYI — SOMEONE IS ALREADY FIGHTING THIS";
+  display: block; font-size: .7rem; font-weight: 800; letter-spacing: .09em;
+  color: #2563eb; margin-bottom: .5rem;
+}
+.info > :first-of-type { margin-top: 0; }
+.info > :last-child { margin-bottom: 0; }
+.info p, .info li { font-size: .95rem; }
+.info a { color: #2563eb; text-decoration: underline; }
+@media (prefers-color-scheme: dark) {
+  .info { background: rgba(96,165,250,.08); border-color: rgba(96,165,250,.28); border-left-color: #60a5fa; }
+  .info::before, .info a { color: #60a5fa; }
+}
+
 /* ---------- TODO / unresolved marker ---------- */
 .todo {
   background: var(--warn-bg); border: 1px solid var(--warn-line);
