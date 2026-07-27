@@ -15,6 +15,12 @@ layout: default
       <div class="proof-line">{{ page.proof_line }}</div>
       <div class="metric-headline">Not counted in the yearly total — its value is as evidence, not a napkin.</div>
     </div>
+    {% elsif page.micro %}
+    <div class="headline-metric proof">
+      <div class="proof-tag">Micro case</div>
+      <div class="proof-line">{{ page.micro_line }}</div>
+      <div class="metric-headline">Too small to move the total — published because the size <em>is</em> the lesson.</div>
+    </div>
     {% else %}
     <div class="headline-metric">
       <div class="metric-range">
