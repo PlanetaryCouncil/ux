@@ -10,8 +10,6 @@ description: >-
 baseurl: ""
 url: "https://lifetimes.planetarycouncil.org"
 
-theme: minima
-
 collections:
   cases:
     output: true
