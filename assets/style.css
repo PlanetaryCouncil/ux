@@ -235,6 +235,7 @@ table.data thead .mid { color: var(--pink); }
 .pill.plat-apps::before      { background: #e6007e; }
 .pill.plat-government::before{ background: #b45309; }
 .pill.plat-anthropic::before { background: #d97757; }
+.pill.plat-github::before    { background: #8957e5; }
 .platform-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .8rem; }
 
 .filter-bar { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0 0 1.5rem; }
