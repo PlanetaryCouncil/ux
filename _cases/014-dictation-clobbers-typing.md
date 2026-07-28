@@ -1,103 +1,94 @@
 ---
 number: 14
+micro: true
+micro_line: "≈0.2 lifetimes / year"
 title: "Dictation eats the words you typed to fix dictation"
-tagline: "The recogniser can't spell CrossFit. So you pause, type it by hand, and carry on — and the moment dictation resumes it overwrites the field and your typed words are gone. The workaround for the bug is destroyed by the bug."
-difficulty: easy
-todo: "Frequency & cross-app behaviour are estimates"
-platforms: [OpenAI, Apps]
-lifetimes:
-  low: 2
-  headline: 15
-  high: 100
+tagline: "The recogniser can't spell CrossFit. So you pause, type it by hand, and carry on — and the live transcript overwrites the field, taking your typed words with it. The workaround for the bug is destroyed by the bug."
+difficulty: none
+todo: "Scope beyond Claude unverified — see note"
+platforms: [Anthropic]
 facts:
-  - label: "People using ChatGPT voice & dictation weekly"
-    value: "150 million+"
-    source: "OpenAI / reported figures, 2026"
-    url: "https://www.demandsage.com/chatgpt-statistics/"
-  - label: "ChatGPT weekly active users"
-    value: "~900 million"
-    source: "reported, February 2026"
-    url: "https://sqmagazine.co.uk/chatgpt-statistics/"
+  - label: "Claude web app monthly active users"
+    value: "~18.9 million"
+    source: "third-party estimate, 2026 — sources conflict, see case 012"
+    url: "https://backlinko.com/claude-users"
+  - label: "Reproduced"
+    value: "Claude desktop app, 38s screen recording"
+    source: "live interim transcript visibly streaming into the composer"
   - label: "Global life expectancy"
     value: "73 years"
     source: "World Bank, 2023"
     url: "https://data.worldbank.org/indicator/SP.DYN.LE00.IN"
-assumptions:
-  - label: "Dictation users who try the pause-and-type workaround"
-    low: "10%"
-    headline: "20%"
-    high: "40%"
-    note: "Anchored on the cited ChatGPT voice figure alone — a floor. The same pattern appears in system dictation on other platforms, which would push this up."
-  - label: "Times per year their typed text gets clobbered"
-    low: "12"
-    headline: "52"
-    high: "150"
-  - label: "Seconds to notice, re-type and re-place the lost words"
-    low: "10s"
-    headline: "20s"
-    high: "45s"
-owner: "Dictation / speech-input teams (OpenAI voice input · OS-level dictation)"
-channel: "In-app feedback · platform speech-input bug trackers"
+owner: "Anthropic (Claude desktop & web dictation)"
+channel: "In-app feedback · support.anthropic.com"
 ---
 
-Dictation mishears a word it was never going to get — a brand, a proper noun, jargon. **CrossFit.**
-A technical term. Someone's surname. So you do the obvious thing: stop talking, type the word properly
-with the keyboard, and resume speaking.
+Dictation mishears a word it was never going to get — a brand, a surname, jargon. **CrossFit.** So you
+do the obvious thing: stop talking, type the word properly with the keyboard, resume speaking.
 
-Then the recogniser finalises its transcript, rewrites the whole field, and **your typed text is gone.**
+Then the live transcript updates, rewrites the field, and **your typed text is gone.**
 
 ## The compounding failure
 
 Two bugs stacked, and the second one eats the fix for the first:
 
-1. **Speech recognition can't reliably handle proper nouns and jargon.** That's forgivable — it's a hard
-   problem, and it will always be somewhat true.
+1. **Speech recognition can't reliably handle proper nouns and jargon.** Forgivable — a genuinely hard
+   problem that will always be somewhat true.
 2. **The system destroys the one obvious human remedy.** Typing the hard word by hand is exactly the
    right move. The interface punishes it.
 
-A limitation you can work around is a nuisance. A limitation whose workaround is actively demolished is
-a trap — and it teaches people not to try, which is the worst outcome an interface can produce.
+A limitation you can work around is a nuisance. A limitation whose workaround is demolished is a trap —
+and it teaches people to stop trying, the worst outcome an interface can produce.
 
-## Why it happens
+## Why it happens — and why the competitor doesn't have it
 
-The dictation engine treats the text field as **exclusively its own**. It keeps a private buffer of the
-current utterance, and when the recogniser revises its hypothesis (which it does constantly — that's why
-words visibly change as you speak), it rewrites the field from that buffer. Anything a human inserted in
-the meantime isn't in the buffer, so it gets overwritten. Classic **last-writer-wins clobbering**: an
-asynchronous process assuming nothing else can touch the thing it's editing.
+This is a consequence of one design choice: **when does the transcript enter the field?**
 
-That assumption is false the entire time the user has a keyboard.
+| | Behaviour | Conflict window |
+|---|---|---|
+| **Claude** | Streams the *interim* hypothesis live into the composer, revising it as you speak | **The whole time you're dictating** |
+| **ChatGPT** | Shows a waveform while recording, inserts the final transcript once at the end | **None** |
 
-## The math
+Live streaming is nicer to watch — you see it working. But it means the engine is continuously
+rewriting the field from its own private buffer, and anything a human typed in the meantime isn't in
+that buffer. Classic **last-writer-wins clobbering**: an asynchronous process assuming nothing else can
+touch what it's editing. That assumption is false the entire time the user has a keyboard.
 
-<p class="equation">150M weekly voice users <span class="op">×</span> 20% <span class="op">×</span> 52 clobbers/yr <span class="op">×</span> 20s <span class="eq">=</span> <span class="out">~15 lifetimes / year</span></p>
+**The fix already ships in a competing product.** You don't have to imagine the solution — you can go
+look at it. That's the strongest possible case for *difficulty: none*.
 
-Anchored on the ChatGPT voice figure alone, so treat it as a **floor** — the same pattern shows up in
-system-level dictation across platforms, which would push it higher.
+## Keeping the live transcript *and* fixing it
 
-## The fix
+Deferring insertion isn't the only option; live streaming can be kept. The cheap fix: **when a keystroke
+arrives, commit the current hypothesis and start a new segment.** The already-spoken text becomes final
+and untouchable, the typed text sits safely after it, dictation continues from there. That's a keystroke
+listener and a buffer flush.
 
 The robust version is a solved problem — text editors and collaborative editing worked this out decades
-ago: **track the range you inserted, only rewrite within it, and reconcile rather than clobber.**
-
-But you don't even need that. The cheap 80% fix: **when a keystroke arrives, commit the current
-hypothesis and start a new segment.** The already-spoken text becomes final and untouchable, the typed
-text sits safely after it, and dictation continues from there. That's a keystroke listener and a buffer
-flush.
+ago: track the range you inserted, only rewrite within it, reconcile rather than clobber.
 
 **The principle: one input method must never destroy another's input.** A keyboard and a microphone
-aimed at the same field are two hands on the same page — the system's job is to let both write, not to
-let the louder one erase the other.
+aimed at the same field are two hands on the same page. The system's job is to let both write.
+
+## Why this is filed as a micro case
+
+Sized on Claude's own user base — a fraction of whom dictate, a fraction of *those* who attempt the
+pause-and-type workaround — it lands around **0.2 lifetimes a year.** Real, small, and the
+[third self-indictment-or-near-it](/cases/012-empty-disclosure-control/) on this site.
 
 <div class="todo" markdown="1">
-**Estimates and scope.** The user and voice-usage counts are cited, but the share of people who attempt
-the pause-and-type workaround, and how often they're clobbered, are reasoned figures. Exact behaviour
-also varies by app and platform — some implementations commit on pause and don't exhibit this at all, so
-the per-app behaviour should be checked before naming any specific product as the sole offender. The
-confident claim is the *pattern*: a dictation buffer that owns the field and overwrites concurrent edits.
+**Scope is the open question, and it's worth two orders of magnitude.** This is confirmed in Claude
+(screen-recorded) and reported *absent* in ChatGPT. What's **not** verified is whether OS-level
+dictation — macOS, Windows voice typing, Android — shares the flaw. Those also stream interim results
+live, so they're architecturally exposed to it, but "exposed" isn't "confirmed" and this site doesn't
+publish inferred numbers.
+
+If it turns out the pattern holds across system dictation, the honest figure is **tens of lifetimes a
+year, not tenths.** Testing four dictation implementations for the pause-and-type clobber is an
+afternoon's work and would settle it. Until then: micro.
 </div>
 
-## Difficulty to fix: easy
+## Difficulty to fix: none
 
 > The machine mishears you, so you reach for the keyboard — the one tool that always works. And the
 > machine deletes what you typed, because it assumed nothing else was allowed to write. Commit on

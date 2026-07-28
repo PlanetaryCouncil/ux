@@ -27,7 +27,7 @@ title: Lifetimes saved
   <div class="fine">Best single estimate: ~{{ total_mid }} lifetimes / year. And we've barely started counting.</div>
 </div>
 
-{% assign PLATFORMS = "Google,Apple,Microsoft,Meta,Anthropic,OpenAI,GitHub,Web,Linux,Apps,Government" | split: "," %}
+{% assign PLATFORMS = "Google,Apple,Microsoft,Meta,Anthropic,GitHub,Web,Linux,Apps,Government" | split: "," %}
 <div class="filter-bar" aria-label="Filter cases by platform">
   <button class="pill active" data-filter="all">All <span>{{ site.cases | size }}</span></button>
   {% for p in PLATFORMS %}
