@@ -34,21 +34,54 @@ Prefer a branch per case (`case-012-foo`)? Anything that isn't `main` behaves li
 below — pick whichever suits your mood; the rule is only "`main` is sacred, everything else
 is a draft."
 
-## Staging — the "every commit gets a URL" part
+## Staging: deploying `dev` somewhere you can look at it
 
-Use **Cloudflare Pages** (natural, since your DNS is already there). It builds *every branch
-and every commit* and hands each its own preview URL — that IS your staging. Push `dev`, open
-the preview link, look, then merge to `main` when it's right.
+**The constraint:** GitHub Pages builds **one branch per repository**. There is no such thing
+as a per-branch preview URL on Pages. So staging needs one of the following.
+
+### CI runs on every branch regardless
+
+`.github/workflows/build.yml` builds **every branch and every PR** with `jekyll build --safe`
+(the same mode GitHub Pages uses) and smoke-tests the output — index page, stylesheet, CNAME,
+at least one case, and the home-page total. It deploys **only** from `main`.
+
+So `dev` always gets a green check or a red X before you merge. That's not a URL, but it
+catches every build break, which is most of what staging is for.
+
+### Option A — Cloudflare Pages (a real URL per branch)
+
+The only option that gives `dev` its own live URL with no extra repo. Natural fit since DNS is
+already at Cloudflare.
 
 | | Setting |
 |---|---|
-| Production branch | `main` → custom domain `lifetimes.planetarycouncil.org` |
 | Build command | `bundle exec jekyll build` |
 | Output directory | `_site` |
-| Preview branches | *all others* → automatic `<hash>.<project>.pages.dev` URLs |
+| Env var | `RUBY_VERSION` = `3.3` (Jekyll needs it pinned) |
+| Production branch | `main` → `lifetimes.planetarycouncil.org` |
+| Every other branch | automatic `<branch>.<project>.pages.dev` preview |
 
-**GitHub Pages alternative:** it only builds the one configured branch, so you get prod but
-no per-branch previews. If you stay on Pages, `make serve` is your staging instead.
+You can also alias the `dev` branch to a stable **`dev.lifetimes.planetarycouncil.org`** in
+Pages → Custom domains, so staging has a fixed address instead of a changing hash.
+
+Note this means Cloudflare hosts production too — you'd turn GitHub Pages off. Running both
+is possible but pointless, and two hosts serving one domain is a good way to confuse yourself.
+
+### Option B — a second repo, staying GitHub-only
+
+Create `ux-staging`, push `dev` to its `main`, enable Pages on it, and point it at
+`dev.lifetimes.planetarycouncil.org`. Free and GitHub-native, but you now maintain two remotes
+and have to remember to push both. Only worth it if you want to stay entirely on GitHub.
+
+### Option C — local (what you already have)
+
+```bash
+make serve   # http://127.0.0.1:4000
+```
+
+Instant, no deploy, no waiting on CI. For a static site with no backend this genuinely covers
+most of what staging is for — the CI check above covers the rest. Reach for A or B when you
+need to *show someone else* a link.
 
 ## Everyday rhythm
 

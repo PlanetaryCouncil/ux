@@ -1,0 +1,67 @@
+name: Build
+
+# Runs on every branch and every PR, so `dev` is verified green before it is
+# ever merged into `main`. Also deploys to GitHub Pages, but only from `main`.
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      # --safe mirrors how GitHub Pages itself builds (plugin whitelist).
+      - name: Build site
+        env:
+          LANG: en_US.UTF-8
+          LC_ALL: en_US.UTF-8
+        run: bundle exec jekyll build --safe --trace
+
+      # Cheap smoke tests: catch an empty build or a broken home page before deploy.
+      - name: Verify output
+        run: |
+          test -f _site/index.html || { echo "::error::no index.html"; exit 1; }
+          test -f _site/assets/style.css || { echo "::error::stylesheet missing"; exit 1; }
+          test -f _site/CNAME || { echo "::error::CNAME missing — custom domain would drop"; exit 1; }
+          pages=$(find _site -name '*.html' | wc -l)
+          cases=$(find _site/cases -name 'index.html' | wc -l)
+          echo "Built $pages pages, $cases cases."
+          [ "$cases" -ge 1 ] || { echo "::error::no cases built"; exit 1; }
+          grep -q 'lifetimes wasted every year' _site/index.html \
+            || { echo "::error::home page total is missing"; exit 1; }
+
+      - name: Upload Pages artifact
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    # Production only. Any other branch stops after `build` — a green check, no deploy.
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
