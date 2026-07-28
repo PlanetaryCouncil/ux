@@ -22,9 +22,9 @@ title: Lifetimes saved
 {% endfor %}
 
 <div class="total-banner">
-  <div class="big">{{ total_lo }}–{{ total_hi }}</div>
+  <div class="big">~{% include num.html n=total_mid %}</div>
   <div class="cap">human lifetimes wasted every year — across {{ counted }} case{% if counted != 1 %}s{% endif %} so far</div>
-  <div class="fine">Best single estimate: ~{{ total_mid }} lifetimes / year. And we've barely started counting.</div>
+  <div class="fine">Middle estimate. Full range {% include num.html n=total_lo %}–{% include num.html n=total_hi %}, because every case carries a low and a high. And we've barely started counting.</div>
 </div>
 
 {% assign PLATFORMS = "Google,Apple,Microsoft,Meta,Anthropic,GitHub,Web,Linux,Apps,Government" | split: "," %}
@@ -46,7 +46,7 @@ title: Lifetimes saved
         <div class="kicker">Case {{ c.number | prepend: '00' | slice: -3, 3 }} · fix difficulty: {{ c.difficulty }}{% if c.todo %}<span class="card-todo">TODO</span>{% endif %}</div>
         <h3>{{ c.title }}</h3>
       </div>
-      {% if c.oneoff %}<div class="card-metric proof-metric">PROOF<small>the anchor case</small></div>{% elsif c.micro %}<div class="card-metric proof-metric">MICRO<small>{{ c.micro_line }}</small></div>{% else %}<div class="card-metric">{{ c.lifetimes.low }}–{{ c.lifetimes.high }}<small>lifetimes / yr</small></div>{% endif %}
+      {% if c.oneoff %}<div class="card-metric proof-metric">PROOF<small>the anchor case</small></div>{% elsif c.micro %}<div class="card-metric proof-metric">MICRO<small>{{ c.micro_line }}</small></div>{% else %}<div class="card-metric">~{% include num.html n=c.lifetimes.headline %}<small>lifetimes / yr</small></div>{% endif %}
     </div>
     <p class="tagline">{{ c.tagline }}</p>
     {% if c.platforms %}<div class="platform-tags">{% for p in c.platforms %}<span class="pill plat-{{ p | downcase }}">{{ p }}</span>{% endfor %}</div>{% endif %}
