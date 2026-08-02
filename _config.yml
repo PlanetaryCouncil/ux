@@ -6,9 +6,13 @@ description: >-
   explicit, difficulty-to-fix honest.
 
 # Served from a custom subdomain root, so baseurl is empty.
-# (It would be "/lifetimes" only if served from username.github.io/lifetimes.)
+# (It would be "/ux" only if served from planetarycouncil.github.io/ux.)
 baseurl: ""
-url: "https://lifetimes.planetarycouncil.org"
+# Must match CNAME. It feeds canonical, og:url and og:image on every page, so a
+# stale value here points search engines and link previews at a dead host while
+# the site itself serves fine — nothing on the page looks wrong.
+url: "https://ux.planetarycouncil.org"
+repo: "https://github.com/PlanetaryCouncil/ux"
 
 collections:
   cases:

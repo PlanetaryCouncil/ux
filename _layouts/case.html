@@ -101,4 +101,12 @@ layout: default
   <section class="body">
     {{ content }}
   </section>
+
+  <!-- The napkin is the argument, so it has to be checkable. This links the
+       exact file the page was rendered from, not a repo root to go hunting in. -->
+  <p class="case-source">
+    <a href="{{ site.repo }}/blob/main/{{ page.path }}" rel="noopener">
+      Read this case's source &mdash; <code>{{ page.path }}</code>
+    </a>
+  </p>
 </article>

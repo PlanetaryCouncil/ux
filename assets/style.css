@@ -42,6 +42,22 @@ a:hover { text-decoration: underline; }
 .brand-text { letter-spacing: -.02em; }
 .site-nav a { color: var(--muted); font-weight: 600; margin-left: 1.1rem; font-size: .95rem; }
 .site-nav a:hover { color: var(--pink); }
+/* The mark carries it at nav size; the word is there for anyone who does not
+   read the octocat as a link, and disappears where the header gets tight. */
+.nav-repo { display: inline-flex; align-items: center; gap: .34rem; vertical-align: -2px; }
+.nav-repo svg { flex: none; }
+@media (max-width: 30rem) { .nav-repo span { display: none; } }
+
+.footer-repo { margin-top: .9rem !important; }
+.footer-repo a { font-weight: 600; }
+
+.case-source {
+  margin: 2.5rem 0 0; padding-top: 1.1rem; border-top: 1px solid var(--line);
+  font-size: .88rem;
+}
+.case-source a { color: var(--muted); font-weight: 600; }
+.case-source a:hover { color: var(--pink); }
+.case-source code { font-size: .95em; }
 
 .wrap { max-width: 860px; margin: 0 auto; padding: 1rem 1.25rem 4rem; }
 
