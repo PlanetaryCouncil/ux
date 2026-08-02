@@ -19,11 +19,11 @@ repo: "https://github.com/PlanetaryCouncil/ux"
 # appears on the site and in the footer with no other edit.
 contact:
   github: "https://github.com/PlanetaryCouncil/ux/issues/new"
-  email: "email@genesis.re"
-  # Liquid treats "" as true, so a blank value would render a dead link. The
-  # templates test for non-empty, and these stay commented until they are real.
-  # twitter: "https://x.com/yourhandle"
-  # telegram: "https://t.me/yourhandle"
+  email: "PlanetaryCouncilHQ@gmail.com"
+  # Liquid treats "" as true, so a blank value renders a dead link. The templates
+  # test for non-empty; leave a channel commented out rather than blank.
+  twitter: "https://x.com/PlanetCouncil"
+  telegram: "https://t.me/PlanetaryCouncil"
 
 collections:
   cases:
