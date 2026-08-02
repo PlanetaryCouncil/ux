@@ -44,7 +44,7 @@ but kept the old fallback for compatibility), while GitHub names its own repos `
 that omitted the rename would break for everyone on an unconfigured Git, and `-M` is harmless when
 there's nothing to rename. The defensive line is *correct engineering*.
 
-**The paper-cut isn't the command. It's the missing "why".**
+**The problem isn't the command. It's the missing "why".**
 
 ## The principle
 

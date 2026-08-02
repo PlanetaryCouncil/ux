@@ -56,44 +56,18 @@ title: Lifetimes saved
 </div>
 
 <section class="submit-cta">
-  <h2>Send us your example</h2>
-  <p>Something on a screen wasted your time today. A button that does nothing. A form that
-  wipes what you typed. A warning you click every single time. If it does that to millions
-  of people, it belongs here.</p>
-
-  <p class="submit-headline">One minute on GitHub, or one sentence anywhere else.</p>
-
-  <div class="submit-routes">
-    <div class="route">
-      <h3>On GitHub</h3>
-      <p>The most direct — it arrives where the site is built, so nothing gets lost. Takes
-      about a minute:</p>
-      <ol>
-        <li>A headline, one line.</li>
-        <li>What went wrong, in two or three sentences.</li>
-        <li>A screenshot, if you have one. Optional.</li>
-        <li>Who could fix it, if you know.</li>
-      </ol>
-      <p class="submit-actions">
-        <a class="btn" href="{{ site.contact.github }}" rel="noopener">Send it on GitHub</a>
-      </p>
-    </div>
-
-    <div class="route">
-      <h3>Anywhere else</h3>
-      <p>No account, no form, nothing to fill in. Send one sentence about what went wrong
-      and we will write it up for you.</p>
-      <p class="submit-actions">
-        {% if site.contact.email and site.contact.email != "" %}<a class="btn btn-ghost" href="mailto:{{ site.contact.email }}?subject=Wasted%20my%20time">Email</a>{% endif %}
-        {% if site.contact.twitter and site.contact.twitter != "" %}<a class="btn btn-ghost" href="{{ site.contact.twitter }}" rel="noopener">Twitter</a>{% endif %}
-        {% if site.contact.telegram and site.contact.telegram != "" %}<a class="btn btn-ghost" href="{{ site.contact.telegram }}" rel="noopener">Telegram</a>{% endif %}
-      </p>
-    </div>
-  </div>
-
-  <p class="submit-foot">You do not need the maths. Someone else will work the numbers out.
-  A real example nobody has written down is worth more than a neat sum for one already on
-  the list.</p>
+  <h2>It only takes one minute</h2>
+  <p class="submit-lede">Something on a screen wasted your time today. A button that does
+  nothing. A form that wipes what you typed. A warning you click every single time. If it
+  does that to millions of people, we want to hear about it.</p>
+  <p class="submit-actions">
+    <a class="btn" href="{{ site.contact.github }}" rel="noopener">GitHub</a>
+    {% if site.contact.telegram and site.contact.telegram != "" %}<a class="btn" href="{{ site.contact.telegram }}" rel="noopener">Telegram</a>{% endif %}
+    {% if site.contact.twitter and site.contact.twitter != "" %}<a class="btn" href="{{ site.contact.twitter }}" rel="noopener">Twitter</a>{% endif %}
+    {% if site.contact.email and site.contact.email != "" %}<a class="btn" href="mailto:{{ site.contact.email }}?subject=Wasted%20my%20time">Email</a>{% endif %}
+  </p>
+  <p class="submit-foot">Tell us what went wrong in a sentence or two. We work out the
+  numbers.</p>
 </section>
 
 <script>

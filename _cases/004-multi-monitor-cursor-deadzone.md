@@ -122,7 +122,7 @@ It's one behaviour, and it lands cross-platform — macOS, Windows and Linux all
 
 ## Companion bug — the layout reflow
 
-The same setup hides a second paper-cut: **changing one display's resolution silently rearranges
+The same setup hides a second problem: **changing one display's resolution silently rearranges
 the whole multi-monitor layout** you deliberately set. One change cascades; the arrangement
 doesn't hold its shape, so you re-drag windows you'd already placed. A setting should survive a
 neighbour changing.

@@ -1,7 +1,7 @@
 # Ministry of Fixing Civilisation
 
 A GitHub Pages (Jekyll) site for one metric: **lifetimes saved** — how many human
-lifetimes each tiny UI/UX paper-cut wastes per year, and how trivial it is to fix.
+lifetimes each small screen problem wastes per year, and how easy it is to fix.
 
 Every case is **one markdown file** in [`_cases/`](_cases/) with a structured napkin in
 its front matter: facts (cited), assumptions (low → likely → high), a difficulty-to-fix

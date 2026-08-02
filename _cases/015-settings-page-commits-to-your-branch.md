@@ -70,7 +70,7 @@ setting — the build source, HTTPS enforcement — is click-only state that exi
 your repository, so you cannot reproduce a working site from its own contents. The `CNAME`
 file is the one part you *can*. It is the good half.
 
-**The paper-cut isn't the file. It's the undeclared direction.**
+**The problem isn't the file. It's the undeclared direction.**
 
 ## The principle
 
@@ -119,7 +119,7 @@ returns "outrageous" is a complaint with decimals.
 
 The reason to keep it anyway is that the shape generalises far past one text box. Every
 control that quietly edits state a user owns — a file, a branch, a history — is the same
-paper-cut. This one is just unusually easy to point at, because it leaves a commit with its
+problem. This one is just unusually easy to point at, because it leaves a commit with its
 own name on it.
 
 <div class="todo" markdown="1">

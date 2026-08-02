@@ -38,7 +38,7 @@
 
 ### 3. Publish (the poster is built for this)
 - Repo / one-page site: methodology, this case study, the calculator.
-- Hacker News ("Show HN: Lifetimes saved — a metric for civilisation's UI paper-cuts").
+- Hacker News ("Show HN: Lifetimes saved — a metric for the small problems on our screens").
   Chrome engineers reliably show up in HN threads about Chrome UX.
 - X/Bluesky thread with the flamingo, tagging the issue link — not the people (yet).
 
@@ -50,7 +50,7 @@
 ### 5. The bigger machine (Ministry of Fixing Civilisation)
 - Every case study follows the same template: **facts cited at face value, assumptions
   explicit and round, cuts where honest, second-order effects directional.**
-- Leaderboard of paper-cuts by lifetimes/year. Candidates: cookie banners (EU-scale,
+- Leaderboard of problems by lifetimes/year. Candidates: cookie banners (EU-scale,
   dwarfs this case), unsubscribe flows, date pickers, 2FA re-prompts on trusted devices.
 - Each entry ships with: repro, math, the named owner, and the issue/ticket link.
   The metric is the headline; the routing to a decision maker is the product.

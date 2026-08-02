@@ -38,7 +38,7 @@ Anthropic, and a catalogue of civilisation's interface failures that never names
 would be worth less. The metric has to apply to the people holding the pen, or it's advocacy
 wearing a lab coat. So: Anthropic, this one's yours. It's four lines of code.
 
-**Two: the size is the lesson.** Most paper-cuts really are this small. [Case 003](/cases/003-cookie-consent-banners/)
+**Two: the size is the lesson.** Most of these really are this small. [Case 003](/cases/003-cookie-consent-banners/)
 is ~4,800 lifetimes a year and this is ~0.02 — a factor of a quarter of a million between two
 things that feel, in the moment, like the same species of annoyance. Irritation is a terrible guide
 to impact. **That's the entire reason this site does arithmetic instead of just complaining.**

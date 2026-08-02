@@ -62,7 +62,7 @@ EU's per-capita clicking), the napkin lands at:
 <p class="equation">EU 575M hr <span class="op">+</span> 5.1B users <span class="op">×</span> 0.5 hr <span class="eq">=</span> <span class="out">~4,800 lifetimes / year</span></p>
 
 Even the low end — **~3,000 lifetimes a year** — is **fifty times** cases 001 and 002 combined.
-This is the monster. Cookie banners are civilisation's single largest self-inflicted UI paper-cut.
+This is the monster. Cookie banners are the single largest waste of everyone's time we have done to ourselves.
 
 <div class="todo" markdown="1">
 **Two things to firm up before this number is quoted as settled.**
@@ -143,7 +143,7 @@ technology is shipping today.
 1. **Consent fatigue bleeds into everything.** Trained to reflexively click the big button,
    users click through *real* security and permission prompts the same way.
 2. **The banner-industrial complex.** An entire consent-management SaaS industry now bills
-   businesses to generate the friction. Money and engineering spent manufacturing the paper-cut.
+   businesses to generate the friction. Money and engineering spent manufacturing the annoyance.
 3. **Page-load and layout-shift tax.** Consent scripts are among the heaviest third-party
    blockers on the web — slower pages for 5.5 billion people, on top of the click.
 

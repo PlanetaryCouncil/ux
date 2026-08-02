@@ -7,7 +7,7 @@ title: Methodology
 
 # The napkin, and the rules it follows
 
-Every case answers one question: **how many human lifetimes does this paper-cut waste per year?**
+Every case answers one question: **how many human lifetimes does this waste per year?**
 
 The formula is deliberately simple enough to fit on a napkin:
 
@@ -46,9 +46,9 @@ than one that points at it.
 
 ## Sending your own
 
-Anyone can add one, and the bar is lower than it looks. Every example on this site is a single text file. If you can say what went wrong in a sentence a stranger would recognise, look up the numbers that are knowable, guess low on the ones that are not, and name who could fix it — that is enough.
+It takes about a minute. Say what went wrong in a sentence, add a screenshot if you have one, and send it — GitHub, Telegram, Twitter or email, whichever you are already logged into.
 
-**You do not need the maths.** Send the example on its own and someone else will work the numbers out. A real problem nobody has written down is worth more than a neat calculation of one already on the list.
+**You do not need the maths.** We work the numbers out. A real problem nobody has written down is worth more than a neat calculation of one already on the list.
 
 ## And one more column: difficulty to fix
 
