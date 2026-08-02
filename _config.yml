@@ -14,6 +14,15 @@ baseurl: ""
 url: "https://ux.planetarycouncil.org"
 repo: "https://github.com/PlanetaryCouncil/ux"
 
+# Where people can send an example. Each link renders only when it has a value,
+# so an unset channel is absent rather than broken — add a handle here and it
+# appears on the site and in the footer with no other edit.
+contact:
+  github: "https://github.com/PlanetaryCouncil/ux/issues/new"
+  email: "email@genesis.re"
+  twitter: ""    # e.g. https://x.com/yourhandle
+  telegram: ""   # e.g. https://t.me/yourhandle
+
 collections:
   cases:
     output: true

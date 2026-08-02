@@ -48,8 +48,8 @@
     <p>Difficulty to fix: mostly <strong>none</strong>. That's the point.</p>
     <p class="footer-repo">Anyone can add one. Every example here is a single text file.
       <a href="{{ site.repo }}/tree/main/_cases" rel="noopener">Read them</a>,
-      <a href="{{ site.repo }}/issues/new" rel="noopener">send yours</a>, or
-      <a href="{{ site.repo }}" rel="noopener">edit one on GitHub</a>.</p>
+      <a href="{{ site.contact.github }}" rel="noopener">send yours</a>{% if site.contact.email %}, or just
+      <a href="mailto:{{ site.contact.email }}?subject=Wasted%20my%20time">email one sentence</a>{% endif %}.</p>
   </footer>
 </body>
 </html>

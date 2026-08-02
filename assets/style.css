@@ -105,6 +105,24 @@ a:hover { text-decoration: underline; }
 .submit-cta li { margin-bottom: .45rem; }
 .submit-cta strong { color: var(--ink, inherit); }
 .submit-actions { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.1rem !important; }
+.submit-headline {
+  font-weight: 700; font-size: 1.05rem; color: inherit !important;
+  margin: 1.2rem 0 1.4rem !important;
+}
+.submit-routes { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+@media (max-width: 40rem) { .submit-routes { grid-template-columns: 1fr; } }
+.route {
+  border: 1px solid var(--line); border-radius: 11px; padding: 1.1rem 1.15rem;
+  display: flex; flex-direction: column;
+}
+.route h3 { margin: 0 0 .55rem; font-size: 1.02rem; letter-spacing: -.01em; }
+.route p, .route ol { color: var(--muted); font-size: .93rem; }
+.route ol { margin: 0 0 .3rem; padding-left: 1.15rem; }
+.route li { margin-bottom: .3rem; }
+/* Push the buttons to a shared baseline so the two routes read as equal offers
+   rather than one looking like an afterthought under a shorter paragraph. */
+.route .submit-actions { margin-top: auto !important; padding-top: .5rem; }
+.submit-foot { margin-top: 1.3rem !important; }
 .btn {
   display: inline-block; padding: .5rem .95rem; border-radius: 999px;
   background: var(--pink); color: #fff; font-weight: 700; font-size: .9rem;

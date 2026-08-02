@@ -4,7 +4,7 @@ title: Lifetimes saved
 ---
 
 <section class="hero">
-  <h1>Fixing civilisation,<br><span class="accent">ten seconds at a time.</span></h1>
+  <h1>Fixing civilisation,<br><span class="accent">one small problem at a time.</span></h1>
   <p class="lede">One number — <strong>lifetimes wasted</strong> — for the small everyday problems on our screens. A button that does nothing. A form that wipes what you typed. Ten seconds each, a few billion people, and it adds up to human lifetimes. Each one is easy to fix.</p>
 </section>
 
@@ -58,21 +58,42 @@ title: Lifetimes saved
 <section class="submit-cta">
   <h2>Send us your example</h2>
   <p>Something on a screen wasted your time today. A button that does nothing. A form that
-  wipes what you typed. A warning you have to click every single time. If it does that to
-  millions of people, it belongs here.</p>
-  <ol>
-    <li><strong>Say what went wrong</strong> — one sentence, the way you would tell a friend.</li>
-    <li><strong>Guess the numbers</strong> — how many people, how often, how many seconds
-    each time. Guess low. Round numbers are fine.</li>
-    <li><strong>Say who could fix it</strong>, and whether it looks easy or hard.</li>
-  </ol>
-  <p>You do not need the maths. Send the example and someone else will work the numbers out.
-  A real example nobody has written down is worth more than a neat sum for one we already have.</p>
-  <p class="submit-actions">
-    <a class="btn" href="{{ site.repo }}/issues/new" rel="noopener">Send your example</a>
-    <a class="btn btn-ghost" href="{{ '/cases/013-unexplained-boilerplate-command/' | relative_url }}">See a finished one</a>
-    <a class="btn btn-ghost" href="{{ '/methodology/' | relative_url }}">How we count</a>
-  </p>
+  wipes what you typed. A warning you click every single time. If it does that to millions
+  of people, it belongs here.</p>
+
+  <p class="submit-headline">One minute on GitHub, or one sentence anywhere else.</p>
+
+  <div class="submit-routes">
+    <div class="route">
+      <h3>On GitHub</h3>
+      <p>The most direct — it arrives where the site is built, so nothing gets lost. Takes
+      about a minute:</p>
+      <ol>
+        <li>A headline, one line.</li>
+        <li>What went wrong, in two or three sentences.</li>
+        <li>A screenshot, if you have one. Optional.</li>
+        <li>Who could fix it, if you know.</li>
+      </ol>
+      <p class="submit-actions">
+        <a class="btn" href="{{ site.contact.github }}" rel="noopener">Send it on GitHub</a>
+      </p>
+    </div>
+
+    <div class="route">
+      <h3>Anywhere else</h3>
+      <p>No account, no form, nothing to fill in. Send one sentence about what went wrong
+      and we will write it up for you.</p>
+      <p class="submit-actions">
+        {% if site.contact.email %}<a class="btn btn-ghost" href="mailto:{{ site.contact.email }}?subject=Wasted%20my%20time">Email</a>{% endif %}
+        {% if site.contact.twitter %}<a class="btn btn-ghost" href="{{ site.contact.twitter }}" rel="noopener">Twitter</a>{% endif %}
+        {% if site.contact.telegram %}<a class="btn btn-ghost" href="{{ site.contact.telegram }}" rel="noopener">Telegram</a>{% endif %}
+      </p>
+    </div>
+  </div>
+
+  <p class="submit-foot">You do not need the maths. Someone else will work the numbers out.
+  A real example nobody has written down is worth more than a neat sum for one already on
+  the list.</p>
 </section>
 
 <script>
