@@ -23,13 +23,12 @@ layout: default
     </div>
     {% else %}
     <div class="headline-metric">
+      <div class="metric-floor">At least</div>
       <div class="metric-range">
         <span class="lo">{{ page.lifetimes.low }}</span>
-        <span class="dash">–</span>
-        <span class="hi">{{ page.lifetimes.high }}</span>
       </div>
       <div class="metric-label">human lifetimes wasted per year</div>
-      <div class="metric-headline">best single estimate: <strong>~{{ page.lifetimes.headline }}</strong></div>
+      <div class="metric-headline">the low end of every assumption. Likely <strong>~{{ page.lifetimes.headline }}</strong>, up to <strong>{{ page.lifetimes.high }}</strong>.</div>
     </div>
     {% endif %}
 

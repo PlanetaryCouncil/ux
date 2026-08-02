@@ -22,9 +22,10 @@ title: Lifetimes saved
 {% endfor %}
 
 <div class="total-banner">
-  <div class="big">{{ total_lo }}–{{ total_hi }}</div>
-  <div class="cap">human lifetimes wasted every year — across {{ counted }} case{% if counted != 1 %}s{% endif %} so far</div>
-  <div class="fine">Best single estimate: ~{{ total_mid }} lifetimes / year. And we've barely started counting.</div>
+  <div class="floor-label">At least</div>
+  <div class="big">{{ total_lo }}</div>
+  <div class="cap">human lifetimes wasted every year — from {{ counted }} counted case{% if counted != 1 %}s{% endif %}</div>
+  <div class="fine">Every case's <em>lowest</em> estimate, added up. Argue any assumption down and the number holds. Likely ~{{ total_mid }}; upper band {{ total_hi }}. {{ site.cases | size }} cases published in total — micro and proof cases are documented but too small to count.</div>
 </div>
 
 {% assign PLATFORMS = "Google,Apple,Microsoft,Meta,Anthropic,GitHub,Web,Linux,Apps,Government" | split: "," %}
@@ -46,13 +47,33 @@ title: Lifetimes saved
         <div class="kicker">Case {{ c.number | prepend: '00' | slice: -3, 3 }} · fix difficulty: {{ c.difficulty }}{% if c.todo %}<span class="card-todo">TODO</span>{% endif %}</div>
         <h3>{{ c.title }}</h3>
       </div>
-      {% if c.oneoff %}<div class="card-metric proof-metric">PROOF<small>the anchor case</small></div>{% elsif c.micro %}<div class="card-metric proof-metric">MICRO<small>{{ c.micro_line }}</small></div>{% else %}<div class="card-metric">{{ c.lifetimes.low }}–{{ c.lifetimes.high }}<small>lifetimes / yr</small></div>{% endif %}
+      {% if c.oneoff %}<div class="card-metric proof-metric">PROOF<small>the anchor case</small></div>{% elsif c.micro %}<div class="card-metric proof-metric">MICRO<small>{{ c.micro_line }}</small></div>{% else %}<div class="card-metric">{{ c.lifetimes.low }}<small>lifetimes / yr, at least</small></div>{% endif %}
     </div>
     <p class="tagline">{{ c.tagline }}</p>
     {% if c.platforms %}<div class="platform-tags">{% for p in c.platforms %}<span class="pill plat-{{ p | downcase }}">{{ p }}</span>{% endfor %}</div>{% endif %}
   </a>
   {% endfor %}
 </div>
+
+<section class="submit-cta">
+  <h2>Send us a paper-cut</h2>
+  <p>You already know one. The dialog that loses your work, the toggle that does nothing,
+  the field that clears itself. If it wastes ten seconds for ten million people, it belongs here.</p>
+  <ol>
+    <li><strong>Name the failure</strong> in one sentence a stranger would recognise.</li>
+    <li><strong>Do the napkin</strong> — users × how often × seconds wasted. Cite what is
+    knowable, guess low on what is not, and show your range.</li>
+    <li><strong>Say who can fix it</strong>, and how hard it would be.</li>
+  </ol>
+  <p>A case is one markdown file. If the arithmetic defeats you, open an issue with the
+  observation and someone will do the napkin — a good paper-cut nobody has counted is worth
+  more than a tidy calculation of one we already have.</p>
+  <p class="submit-actions">
+    <a class="btn" href="{{ site.repo }}/issues/new" rel="noopener">Open an issue</a>
+    <a class="btn btn-ghost" href="{{ site.repo }}/blob/main/README.md" rel="noopener">Read the format</a>
+    <a class="btn btn-ghost" href="{{ '/methodology/' | relative_url }}">See the rules</a>
+  </p>
+</section>
 
 <script>
 (function(){
