@@ -24,9 +24,24 @@ title: Lifetimes saved
 <div class="total-banner">
   <div class="floor-label">At least</div>
   <div class="big">{{ total_lo }}</div>
-  <div class="cap">human lifetimes wasted every year — from {{ counted }} counted case{% if counted != 1 %}s{% endif %}</div>
-  <div class="fine">Every case's <em>lowest</em> estimate, added up. Argue any assumption down and the number holds. Likely ~{{ total_mid }}; upper band {{ total_hi }}. {{ site.cases | size }} cases published in total — micro and proof cases are documented but too small to count.</div>
+  <div class="cap">human lifetimes wasted every year</div>
+  <div class="fine">Every example's <em>lowest</em> estimate, added up. Argue any assumption down and the number holds.</div>
 </div>
+
+<section class="submit-cta">
+  <h2>Send us the next one — it only takes a minute</h2>
+  <p class="submit-lede">Something on a screen wasted your time today. A button that does
+  nothing. A form that wipes what you typed. A warning you click every single time. If it
+  does that to millions of people, we want to hear about it.</p>
+  <p class="submit-actions">
+    <a class="btn" href="{{ site.contact.github }}" rel="noopener">GitHub</a>
+    {% if site.contact.telegram and site.contact.telegram != "" %}<a class="btn" href="{{ site.contact.telegram }}" rel="noopener">Telegram</a>{% endif %}
+    {% if site.contact.twitter and site.contact.twitter != "" %}<a class="btn" href="{{ site.contact.twitter }}" rel="noopener">Twitter</a>{% endif %}
+    {% if site.contact.email and site.contact.email != "" %}<a class="btn" href="mailto:{{ site.contact.email }}?subject=Wasted%20my%20time">Email</a>{% endif %}
+  </p>
+  <p class="submit-foot">Tell us what went wrong in a sentence or two. We work out the
+  numbers.</p>
+</section>
 
 {% assign PLATFORMS = "Google,Apple,Microsoft,Meta,Anthropic,GitHub,Web,Linux,Apps,Government" | split: "," %}
 <div class="filter-bar" aria-label="Filter cases by platform">
@@ -54,21 +69,6 @@ title: Lifetimes saved
   </a>
   {% endfor %}
 </div>
-
-<section class="submit-cta">
-  <h2>It only takes one minute</h2>
-  <p class="submit-lede">Something on a screen wasted your time today. A button that does
-  nothing. A form that wipes what you typed. A warning you click every single time. If it
-  does that to millions of people, we want to hear about it.</p>
-  <p class="submit-actions">
-    <a class="btn" href="{{ site.contact.github }}" rel="noopener">GitHub</a>
-    {% if site.contact.telegram and site.contact.telegram != "" %}<a class="btn" href="{{ site.contact.telegram }}" rel="noopener">Telegram</a>{% endif %}
-    {% if site.contact.twitter and site.contact.twitter != "" %}<a class="btn" href="{{ site.contact.twitter }}" rel="noopener">Twitter</a>{% endif %}
-    {% if site.contact.email and site.contact.email != "" %}<a class="btn" href="mailto:{{ site.contact.email }}?subject=Wasted%20my%20time">Email</a>{% endif %}
-  </p>
-  <p class="submit-foot">Tell us what went wrong in a sentence or two. We work out the
-  numbers.</p>
-</section>
 
 <script>
 (function(){
