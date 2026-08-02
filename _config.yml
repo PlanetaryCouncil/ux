@@ -20,8 +20,10 @@ repo: "https://github.com/PlanetaryCouncil/ux"
 contact:
   github: "https://github.com/PlanetaryCouncil/ux/issues/new"
   email: "email@genesis.re"
-  twitter: ""    # e.g. https://x.com/yourhandle
-  telegram: ""   # e.g. https://t.me/yourhandle
+  # Liquid treats "" as true, so a blank value would render a dead link. The
+  # templates test for non-empty, and these stay commented until they are real.
+  # twitter: "https://x.com/yourhandle"
+  # telegram: "https://t.me/yourhandle"
 
 collections:
   cases:

@@ -84,9 +84,9 @@ title: Lifetimes saved
       <p>No account, no form, nothing to fill in. Send one sentence about what went wrong
       and we will write it up for you.</p>
       <p class="submit-actions">
-        {% if site.contact.email %}<a class="btn btn-ghost" href="mailto:{{ site.contact.email }}?subject=Wasted%20my%20time">Email</a>{% endif %}
-        {% if site.contact.twitter %}<a class="btn btn-ghost" href="{{ site.contact.twitter }}" rel="noopener">Twitter</a>{% endif %}
-        {% if site.contact.telegram %}<a class="btn btn-ghost" href="{{ site.contact.telegram }}" rel="noopener">Telegram</a>{% endif %}
+        {% if site.contact.email and site.contact.email != "" %}<a class="btn btn-ghost" href="mailto:{{ site.contact.email }}?subject=Wasted%20my%20time">Email</a>{% endif %}
+        {% if site.contact.twitter and site.contact.twitter != "" %}<a class="btn btn-ghost" href="{{ site.contact.twitter }}" rel="noopener">Twitter</a>{% endif %}
+        {% if site.contact.telegram and site.contact.telegram != "" %}<a class="btn btn-ghost" href="{{ site.contact.telegram }}" rel="noopener">Telegram</a>{% endif %}
       </p>
     </div>
   </div>
