@@ -44,11 +44,11 @@ This isn't an apology for incomplete work. It's the same rule as the rest: a rea
 to see exactly how much weight each number can bear. A case that hides its weak joint is worth less
 than one that points at it.
 
-## Adding a case
+## Sending your own
 
-The barrier is deliberately low: a case is **one markdown file**. If you can name the failure in a sentence a stranger would recognise, cite what is knowable, guess low on what is not, and say who could fix it — that is a case.
+Anyone can add one, and the bar is lower than it looks. Every example on this site is a single text file. If you can say what went wrong in a sentence a stranger would recognise, look up the numbers that are knowable, guess low on the ones that are not, and name who could fix it — that is enough.
 
-If the arithmetic defeats you, file the observation as an issue anyway. A real paper-cut nobody has counted is worth more than a tidy calculation of one already on the list, and the napkin is the easy part to add later.
+**You do not need the maths.** Send the example on its own and someone else will work the numbers out. A real problem nobody has written down is worth more than a neat calculation of one already on the list.
 
 ## And one more column: difficulty to fix
 

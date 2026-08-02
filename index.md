@@ -4,8 +4,8 @@ title: Lifetimes saved
 ---
 
 <section class="hero">
-  <h1>Fixing civilisation,<br><span class="accent">one paper-cut at a time.</span></h1>
-  <p class="lede">A single metric — <strong>lifetimes saved</strong> — for the tiny UI/UX failures that waste humanity's time at planetary scale. Each one is a back-of-a-napkin calculation. Each one is trivial to fix.</p>
+  <h1>Fixing civilisation,<br><span class="accent">ten seconds at a time.</span></h1>
+  <p class="lede">One number — <strong>lifetimes wasted</strong> — for the small everyday problems on our screens. A button that does nothing. A form that wipes what you typed. Ten seconds each, a few billion people, and it adds up to human lifetimes. Each one is easy to fix.</p>
 </section>
 
 {% assign total_lo = 0 %}
@@ -56,22 +56,22 @@ title: Lifetimes saved
 </div>
 
 <section class="submit-cta">
-  <h2>Send us a paper-cut</h2>
-  <p>You already know one. The dialog that loses your work, the toggle that does nothing,
-  the field that clears itself. If it wastes ten seconds for ten million people, it belongs here.</p>
+  <h2>Send us your example</h2>
+  <p>Something on a screen wasted your time today. A button that does nothing. A form that
+  wipes what you typed. A warning you have to click every single time. If it does that to
+  millions of people, it belongs here.</p>
   <ol>
-    <li><strong>Name the failure</strong> in one sentence a stranger would recognise.</li>
-    <li><strong>Do the napkin</strong> — users × how often × seconds wasted. Cite what is
-    knowable, guess low on what is not, and show your range.</li>
-    <li><strong>Say who can fix it</strong>, and how hard it would be.</li>
+    <li><strong>Say what went wrong</strong> — one sentence, the way you would tell a friend.</li>
+    <li><strong>Guess the numbers</strong> — how many people, how often, how many seconds
+    each time. Guess low. Round numbers are fine.</li>
+    <li><strong>Say who could fix it</strong>, and whether it looks easy or hard.</li>
   </ol>
-  <p>A case is one markdown file. If the arithmetic defeats you, open an issue with the
-  observation and someone will do the napkin — a good paper-cut nobody has counted is worth
-  more than a tidy calculation of one we already have.</p>
+  <p>You do not need the maths. Send the example and someone else will work the numbers out.
+  A real example nobody has written down is worth more than a neat sum for one we already have.</p>
   <p class="submit-actions">
-    <a class="btn" href="{{ site.repo }}/issues/new" rel="noopener">Open an issue</a>
-    <a class="btn btn-ghost" href="{{ site.repo }}/blob/main/README.md" rel="noopener">Read the format</a>
-    <a class="btn btn-ghost" href="{{ '/methodology/' | relative_url }}">See the rules</a>
+    <a class="btn" href="{{ site.repo }}/issues/new" rel="noopener">Send your example</a>
+    <a class="btn btn-ghost" href="{{ '/cases/013-unexplained-boilerplate-command/' | relative_url }}">See a finished one</a>
+    <a class="btn btn-ghost" href="{{ '/methodology/' | relative_url }}">How we count</a>
   </p>
 </section>
 
