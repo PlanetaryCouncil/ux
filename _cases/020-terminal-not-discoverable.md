@@ -52,12 +52,17 @@ search box, which works perfectly too, provided you already know the word.
 This is the part that turns an annoyance into a design failure. A search-first launcher assumes you know
 the **name** of the thing you want. For this particular thing, the name is different almost everywhere:
 
-| You came from | You'd type | Result |
-|---|---|---|
-| macOS | "terminal" | ✅ works |
-| Windows | "command prompt" / "powershell" | ❌ nothing |
-| KDE | "konsole" | ❌ nothing |
-| Nowhere — you just want to type commands | "command line" / "shell" / "console" | ❌ mostly nothing |
+| You came from | You'd type |
+|---|---|
+| macOS | "terminal" |
+| Windows | "command prompt" / "powershell" / "cmd" |
+| KDE | "konsole" |
+| Nowhere — you just want to type commands | "command line" / "shell" / "console" |
+
+*(`.desktop` files carry a `Keywords=` field precisely so alternative names can match, and GNOME
+Terminal's does list several. How completely it covers the vocabularies above is
+**[unverified](#todo)** — but empirically the search did not rescue this user, and a keyword list you
+can't see is still a guess you have to make.)*
 
 A browsable menu lets you find things you can't name — you scan a list and recognise it. Search only
 retrieves things you can already name. **Replacing browse with search silently converts "I don't know
@@ -99,22 +104,40 @@ it matters.
 Small, because the population is small. The *rate* is brutal — near-universal among newcomers to a
 platform whose entire proposition is the command line.
 
-## The fix
+## The fix: no guesswork
 
-**Pin it to the dock by default.** That's the whole change: one entry in the default favourites list.
-Failing that, show the shortcut somewhere a new user will actually look — the welcome screen that already
-appears on first boot would do.
+The standard to aim at is simple — **a new user should be able to open a terminal without guessing
+anything.** Not a shortcut to memorise, not a name to recall, not a hidden second step. Three changes,
+in order of how much they matter:
+
+1. **Put it in the applications grid, visibly.** Browsable, with an icon you can recognise without
+   knowing its name. This is the one that actually solves it: recognition beats recall.
+2. **Pin it to the dock by default.** One entry in the default favourites list. On a distribution whose
+   core proposition is the command line, this is not a controversial use of a dock slot.
+3. **Fill out the search keywords properly** — `cmd`, `command prompt`, `shell`, `console`, `command
+   line`, `bash`, `powershell`. The `.desktop` spec has a `Keywords=` field for exactly this, so every
+   vocabulary lands on the right app. It's one line in a text file.
+
+macOS gets this right the boring way: Cmd+Space and type, *and* it sits in Applications → Utilities where
+you can find it by looking. Two independent paths, one for people who know the name and one for people
+who don't. That redundancy is the entire trick.
 
 **The principle: a shortcut is not discoverability.** A keyboard binding is an accelerator for people who
 already know the feature exists. It can make a known path faster; it can never be how someone *finds* the
 path. Every feature needs at least one visible affordance, and "you can search for it" only counts when
 the user knows what it's called.
 
-<div class="todo" markdown="1">
-**Estimates.** The market-share figures are cited; annual new-install volume and how long the hunt takes
-are reasoned. Behaviour also varies by flavour — Kubuntu, Mint and others ship visible menus and don't
-have this problem — so this is specifically about GNOME-default Ubuntu as observed, not "Linux" as a
-whole. The Linux tag is broader than the finding.
+<div class="todo" markdown="1" id="todo">
+**Search keywords not verified.** GNOME Terminal's `.desktop` file does ship a `Keywords=` list, so some
+of the alternative names above may already match — the vocabulary table shows what a newcomer would
+*try*, not a tested set of failures. Someone should run each term against a stock install and record the
+results. It doesn't change the core finding (no visible entry, no browsable menu, shortcut unadvertised),
+but it does change how much of the blame sits on search versus on the missing affordance.
+
+**Estimates.** Market-share figures are cited; annual new-install volume and hunt duration are reasoned.
+Behaviour also varies by flavour — Kubuntu, Mint and others ship visible menus and don't have this
+problem — so this is GNOME-default Ubuntu as observed, not "Linux" as a whole. The Linux tag is broader
+than the finding.
 </div>
 
 ## Difficulty to fix: none
