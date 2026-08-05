@@ -66,6 +66,20 @@ where it is" into "I don't know what it's called,"** which is a much worse place
 And the irony compounds: Ubuntu's own documentation opens roughly every instruction with *"open a
 terminal."* The system treats it as the universal starting point while giving it no visible door.
 
+## Why it survives: obvious once you know it
+
+Ctrl+Alt+T is a *good* shortcut. It's memorable, it's fast, and the moment you learn it the whole
+complaint evaporates — it feels obvious, and you stop being able to imagine not knowing it.
+
+That's the trap. **Everyone with the power to fix this already knows the shortcut.** Every maintainer,
+every packager, every long-time user filing bugs — for all of them the terminal is one reflex away, so
+the missing door isn't visible. The only people who experience the problem are the ones with no standing
+to report it, and they stop experiencing it about ten minutes after they'd have written the bug.
+
+This is the curse of knowledge doing structural damage: a defect that deletes its own witnesses. It
+explains a lot of what's on this site — these aren't hard problems, they're problems that become
+invisible to anyone qualified to solve them.
+
 ## The steelman
 
 GNOME's search-first design is genuinely fast once the vocabulary is in your head, and a deliberately
