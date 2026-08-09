@@ -27,7 +27,7 @@ title: Lifetimes saved
   <div class="fine">Middle estimate. Full range {% include num.html n=total_lo %}–{% include num.html n=total_hi %}, because every case carries a low and a high. And we've barely started counting.</div>
 </div>
 
-{% assign PLATFORMS = "Google,Apple,Microsoft,Meta,Anthropic,Adobe,GitHub,Web,Linux,Apps,Telecoms,Government" | split: "," %}
+{% assign PLATFORMS = "Google,Apple,Microsoft,Meta,Anthropic,OpenAI,Adobe,GitHub,Web,Linux,Apps,Telecoms,Government" | split: "," %}
 <div class="filter-bar" aria-label="Filter cases by platform">
   <button class="pill active" data-filter="all">All <span>{{ site.cases | size }}</span></button>
   {% for p in PLATFORMS %}
