@@ -22,8 +22,9 @@ facts:
     value: "carrier must re-issue the profile"
     source: "new QR code, identity verification"
   - label: "Why it's bound to the device"
-    value: "profiles are tied to the eUICC hardware"
-    source: "the same property that blocks casual SIM-swap cloning"
+    value: "cryptographically bound to the eUICC's EID"
+    source: "GSMA SGP.22 — a profile issued for one EID is rejected by any other eUICC"
+    url: "https://www.gsma.com/solutions-and-impact/technologies/esim/security-analysis-of-the-consumer-remote-sim-provisioning-protocol/"
   - label: "Global life expectancy"
     value: "73 years"
     source: "World Bank, 2023"
@@ -59,13 +60,22 @@ precisely the scenario the mechanism doesn't cover.
 
 ## The steelman, and it's real
 
-There's a genuine reason, and it isn't laziness. An eSIM profile is **cryptographically bound to the
-device's eUICC hardware.** That binding is a security property: it's what stops a profile being copied
-onto another handset. A freely backed-up, freely restorable eSIM is a **SIM-swap attack in a file** —
-and SIM-swap is how people lose bank accounts.
+There's a genuine reason, and it isn't laziness. Under the GSMA's **SGP.22** standard, a profile is
+cryptographically bound to the **EID** — the unique identifier of the device's eUICC chip. A profile
+issued for one EID is **rejected by any other eUICC.** That binding is precisely what stops a profile
+being intercepted or cloned onto another handset.
 
-So "just put it in the backup" is not the fix. The thing you'd be backing up is the thing whose
-non-copyability protects you.
+So a freely backed-up, freely restorable eSIM would be a **SIM-swap attack in a file** — and SIM-swap is
+how people lose bank accounts. "Just put it in the backup" isn't the fix; the thing you'd be backing up
+is the thing whose non-copyability is protecting you. Even if the bytes were in your backup, the new
+phone's eUICC would refuse them.
+
+**A distinction that resolves most of the confusion:** the *profile* can never move, but the
+*entitlement* — your right to a profile for that number — can. That's what device-to-device transfer
+actually does: the old profile is deleted and the carrier issues a fresh one to the new EID. So any
+system that appears to "back up an eSIM" is necessarily storing the activation reference, not the
+credential. That's a real and useful thing to store. It is also not what the backup screen currently
+implies, in either direction.
 
 ## But the disclosure failure is entirely real
 
@@ -112,10 +122,16 @@ the backup Apple isn't making. It takes five minutes now and replaces several ho
 
 <div class="todo" markdown="1">
 **One unresolved conflict.** Two eSIM-vendor blogs describe an iCloud "eSIM Backup" toggle and iOS 18
-saving eSIM details to Keychain. **This could not be confirmed on Apple's own documentation**, and it
-contradicts the hardware-binding explanation and every other source. It is *not* repeated as fact here.
-If such a setting exists it would materially change this case, so it should be checked directly on a
-current device before anything here is quoted.
+saving eSIM details to Keychain. **This could not be confirmed on Apple's own documentation** and is
+*not* repeated as fact here.
+
+Note it wouldn't actually contradict EID binding — such a feature could only be storing the
+**activation reference**, letting a new device request a fresh profile automatically, rather than
+storing the credential itself. That's coherent and would be genuinely useful. But whether it exists, and
+whether it ships **on or off by default**, is unverified. If it exists and defaults to off, this case
+changes character entirely: from an omission nobody mentions to a safety net built and left switched off
+— the same failure as [case 025](/cases/025-silent-cloud-eviction/). Worth thirty seconds in Settings →
+Apple ID → iCloud to settle.
 </div>
 
 ## Difficulty to fix: easy
