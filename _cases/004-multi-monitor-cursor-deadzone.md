@@ -133,7 +133,7 @@ Two displays give you one shared border and two dead segments. Add a third — t
 a laptop below, two monitors above at different heights and resolutions — and it compounds
 combinatorially. Now there are multiple boundaries, each still overlap-limited; **corner dead-zones**
 where three displays almost-but-don't-quite meet; and journeys that force you to route A→B→C because
-A and C share no edge at all. Worse, mismatched sizes *force* the offset "staircase" arrangement, and
+A and C share no edge at all — [case 031](/cases/031-diagonal-display-traversal/) takes that last one apart. Worse, mismatched sizes *force* the offset "staircase" arrangement, and
 every offset manufactures another stretch of wall.
 
 So the tax scales faster than the monitor count — and it lands hardest on exactly the people who cross
