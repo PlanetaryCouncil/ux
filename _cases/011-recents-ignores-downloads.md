@@ -1,14 +1,14 @@
 ---
 number: 11
-title: "You just downloaded it — but \"Recents\" only counts what you've opened"
-tagline: "On the Mac, Recents lists files you've opened, not files you saved or downloaded. So the file that arrived thirty seconds ago — the most recent thing you own — isn't in Recents. You go looking. It isn't there."
+title: "\"Recents\" shows files you opened — not files you just saved or created"
+tagline: "You download something, or save your edit, or create a new file. Thirty seconds later it's the most recent file you own. But Recents doesn't know that — it only counts files you've opened. So you go looking, and it isn't there."
 difficulty: easy
-todo: "macOS indexing behaviour & frequency need checking"
-platforms: [Apple]
+todo: "macOS indexing behaviour & frequency need checking; platform spread unverified"
+platforms: [Apple, Microsoft]
 lifetimes:
-  low: 10
-  headline: 80
-  high: 350
+  low: 54
+  headline: 160
+  high: 380
 facts:
   - label: "Apple active devices (Macs are a subset)"
     value: "2.2 billion"
@@ -24,10 +24,11 @@ assumptions:
     headline: "200M"
     high: "250M"
     note: "The Mac slice of Apple's active-device base — an estimate."
-  - label: "Times/year you expect a just-saved file in Recents and it's absent"
-    low: "26"
-    headline: "78"
-    high: "156"
+  - label: "Times/year you expect a recently-saved/created file in Recents and it's absent"
+    low: "52"
+    headline: "156"
+    high: "365"
+    note: "Downloads, saves, exports, new files — any creation event. Rises with creative and data workers."
   - label: "Seconds lost hunting each time"
     low: "8s"
     headline: "12s"
@@ -36,25 +37,29 @@ owner: "Apple (Finder \"Recents\" smart folder · Spotlight metadata)"
 channel: "Apple Feedback Assistant"
 ---
 
-You save or download a file. You go to **Recents** to grab it — because what could be more recent than
-the thing that just landed? It isn't there. Recents, it turns out, means "recently **opened**," not
-"recently **arrived**." A file you created or downloaded but haven't opened doesn't count as recent to
-the one folder whose entire job is recency. So you bounce to Downloads, or search by half-remembered name.
+You save a file in Photoshop. You download something. You export a video. You go to **Recents** to
+grab it — because what could be more recent than the thing that just landed? It isn't there. Recents,
+it turns out, means "recently **opened**," not "recently **created or modified**." A file you saved,
+downloaded, or created but haven't opened yet doesn't count as recent to the one folder whose entire
+job is recency. So you bounce to Downloads, search by half-remembered name, or dig through the file
+system to find the thing you were just working on.
 
 ## The math
 
-<p class="equation">200M Macs <span class="op">×</span> ~1.5 missed lookups/week <span class="op">×</span> 12s <span class="eq">=</span> <span class="out">~80 lifetimes / year</span></p>
+<p class="equation">200M Macs <span class="op">×</span> 3 missed lookups/week <span class="op">×</span> 12s <span class="eq">=</span> <span class="out">~160 lifetimes / year</span></p>
 
-Band **~10 to ~350 lifetimes/year** on the population and frequency estimates. Small, constant, and
-paid by the person doing the most ordinary thing there is: getting a new file onto their computer.
+Band **~54 to ~380 lifetimes/year** on the population and frequency estimates. The range widened
+because frequency is now higher — every save, export, and download counts, not just downloads alone.
+Constant, and paid by the person doing the most ordinary thing there is: creating new files.
 
 ## Why it happens
 
-Recents is a smart folder sorted by **date last opened**. Downloading or saving *creates* a file — it
-sets "date added" and "date modified" — but it never "opens" it, so the query that builds Recents
-skips right past it. The definition of "recent" was written from the app's point of view (files I've
-had open), not the human's (files that recently entered my life). Those diverge exactly at the moment
-you most need them to agree: right after a download.
+Recents is indexed by **date last opened** — not by date created, date modified, or date added. When
+you save a file, download something, or create a new document, the filesystem updates the timestamps,
+but the file was never "opened," so the query that builds Recents skips it. The definition of "recent"
+was written from the app's point of view (files I've had open), not the human's (files that recently
+entered my workflow). Those diverge exactly at the moment you most need them to agree: right after a
+save, a download, or any act of creation.
 
 ## The "where's my file?" family
 
