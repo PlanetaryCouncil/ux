@@ -54,6 +54,28 @@ title: Lifetimes saved
   {% endfor %}
 </div>
 
+{% if site.quirks.size > 0 %}
+<section class="quirks-section" id="quirks">
+  <h2 class="section-head">Quirks</h2>
+  <p class="section-lede">Contradictions and small absurdities that don't warrant lifetime math — a page that says open <em>and</em> closed, a platform that can't agree with itself. No napkins here, just field notes. This is the backlog, built in public.</p>
+  <div class="case-list">
+    {% assign qsorted = site.quirks | sort: "number" %}
+    {% for q in qsorted %}
+    <a class="case-card quirk-card" href="{{ q.url | relative_url }}">
+      <div class="row">
+        <div>
+          <div class="kicker">Quirk {{ q.number | prepend: '00' | slice: -3, 3 }}{% if q.vendor %} · {{ q.vendor }}{% endif %}</div>
+          <h3>{{ q.title }}</h3>
+        </div>
+        <div class="card-metric proof-metric">QUIRK<small>no math, just facepalm</small></div>
+      </div>
+      <p class="tagline">{{ q.tagline }}</p>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
 <script>
 (function(){
   var bar=document.querySelector('.filter-bar');

@@ -44,7 +44,12 @@ channel: "Apple Feedback Assistant · Windows Feedback Hub · mutter / wlroots i
 ---
 
 Three displays. The big one up top, the laptop tucked below it on the left, a second monitor
-off to the right at mid-height. A completely ordinary desk.
+off to the right at mid-height. A completely ordinary desk. This one, in fact:
+
+![macOS display arrangement: main display top-left, laptop below it, second monitor to the right at mid-height — the laptop and the right monitor share no edge](/images/031-display-arrangement.png)
+
+That's a real arrangement screen, not a hypothetical. The laptop (bottom) and the right-hand
+monitor touch nothing but air.
 
 You want the pointer on the right-hand monitor. Your hand makes the obvious movement: **one
 diagonal flick, up and to the right.** The pointer doesn't go there. It can't — those two

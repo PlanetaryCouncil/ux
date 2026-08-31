@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<article class="case quirk">
+  <a class="back" href="{{ '/' | relative_url }}#quirks">← All quirks</a>
+
+  <header class="case-head">
+    <div class="case-num quirk-num">Quirk {{ page.number | prepend: '00' | slice: -3, 3 }}</div>
+    <h1>{{ page.title }}</h1>
+    {% if page.tagline %}<p class="tagline">{{ page.tagline }}</p>{% endif %}
+
+    <div class="headline-metric proof">
+      <div class="proof-tag quirk-tag">Quirk</div>
+      <div class="proof-line">{{ page.quirk_line }}</div>
+      <div class="metric-headline">No lifetime math — just a contradiction someone shipped. Logged because building in public means the small absurdities count too.</div>
+    </div>
+
+    {% if page.vendor %}
+    <div class="platform-tags">
+      <span class="pill">{{ page.vendor }}</span>
+    </div>
+    {% endif %}
+  </header>
+
+  <section class="body">
+    {{ content }}
+  </section>
+</article>

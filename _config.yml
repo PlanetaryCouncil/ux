@@ -14,6 +14,9 @@ collections:
   cases:
     output: true
     permalink: /cases/:name/
+  quirks:
+    output: true
+    permalink: /quirks/:name/
 
 defaults:
   - scope:
@@ -21,6 +24,11 @@ defaults:
       type: cases
     values:
       layout: case
+  - scope:
+      path: ""
+      type: quirks
+    values:
+      layout: quirk
 
 exclude:
   - ROADMAP.md
