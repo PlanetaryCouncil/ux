@@ -63,7 +63,7 @@ erased.** Bizarrely, insanely normal.
 ## Second-order waste — directional, only pushes up
 
 1. **Real money, not just time.** A botched or unfiled W-8BEN-E means the withholding agent
-   keeps **30% of gross US-source payments.** This paper-cut costs foreign freelancers and
+   keeps **30% of gross US-source payments.** This one costs foreign freelancers and
    small firms actual income.
 2. **The defensive-typing tax.** Burned users now draft every form's answers in a separate
    doc and paste them in — a permanent overhead paid forever, caused by the *memory* of one loss.

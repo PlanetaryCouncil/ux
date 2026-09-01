@@ -20,7 +20,7 @@ This file now holds only the things that are **genuinely blocked on a decision**
 Both of these are ready to write as full cases. They're held only because they'd **change what the
 Ministry is** — they're *commercial* dark patterns, not interface bugs. Open fork:
 
-- **Stay narrow** — the Ministry is UI/UX paper-cuts. These go to a sister list ("dark patterns"),
+- **Stay narrow** — the Ministry is small screen problems. These go to a sister list ("dark patterns"),
   linked but separate.
 - **Widen** — one Ministry, two wings, split by the accident-vs-intent axis above.
 

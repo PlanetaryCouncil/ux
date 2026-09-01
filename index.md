@@ -4,8 +4,8 @@ title: Lifetimes saved
 ---
 
 <section class="hero">
-  <h1>Fixing civilisation,<br><span class="accent">one paper-cut at a time.</span></h1>
-  <p class="lede">A single metric — <strong>lifetimes saved</strong> — for the tiny UI/UX failures that waste humanity's time at planetary scale. Each one is a back-of-a-napkin calculation. Each one is trivial to fix.</p>
+  <h1>Fixing civilisation,<br><span class="accent">one small problem at a time.</span></h1>
+  <p class="lede">One number — <strong>lifetimes wasted</strong> — for the small everyday problems on our screens. A button that does nothing. A form that wipes what you typed. Ten seconds each, a few billion people, and it adds up to human lifetimes. Each one is easy to fix.</p>
 </section>
 
 {% assign total_lo = 0 %}
@@ -22,12 +22,28 @@ title: Lifetimes saved
 {% endfor %}
 
 <div class="total-banner">
-  <div class="big">~{% include num.html n=total_mid %}</div>
-  <div class="cap">human lifetimes wasted every year — across {{ counted }} case{% if counted != 1 %}s{% endif %} so far</div>
-  <div class="fine">Middle estimate. Full range {% include num.html n=total_lo %}–{% include num.html n=total_hi %}, because every case carries a low and a high. And we've barely started counting.</div>
+  <div class="floor-label">At least</div>
+  <div class="big">{{ total_lo }}</div>
+  <div class="cap">human lifetimes wasted every year</div>
+  <div class="fine">Every example's <em>lowest</em> estimate, added up. Argue any assumption down and the number holds.</div>
 </div>
 
-{% assign PLATFORMS = "Google,Apple,Microsoft,Meta,Anthropic,OpenAI,Adobe,GitHub,Web,Linux,Apps,Telecoms,Government" | split: "," %}
+<section class="submit-cta">
+  <h2>Send us the next one — it only takes a minute</h2>
+  <p class="submit-lede">Something on a screen wasted your time today. A button that does
+  nothing. A form that wipes what you typed. A warning you click every single time. If it
+  does that to millions of people, we want to hear about it.</p>
+  <p class="submit-actions">
+    <a class="btn" href="{{ site.contact.github }}" rel="noopener">GitHub</a>
+    {% if site.contact.telegram and site.contact.telegram != "" %}<a class="btn" href="{{ site.contact.telegram }}" rel="noopener">Telegram</a>{% endif %}
+    {% if site.contact.twitter and site.contact.twitter != "" %}<a class="btn" href="{{ site.contact.twitter }}" rel="noopener">Twitter</a>{% endif %}
+    {% if site.contact.email and site.contact.email != "" %}<a class="btn" href="mailto:{{ site.contact.email }}?subject=Wasted%20my%20time">Email</a>{% endif %}
+  </p>
+  <p class="submit-foot">Tell us what went wrong in a sentence or two. We work out the
+  numbers.</p>
+</section>
+
+{% assign PLATFORMS = "Google,Apple,Microsoft,Meta,Anthropic,GitHub,Web,Linux,Apps,Government" | split: "," %}
 <div class="filter-bar" aria-label="Filter cases by platform">
   <button class="pill active" data-filter="all">All <span>{{ site.cases | size }}</span></button>
   {% for p in PLATFORMS %}
@@ -46,7 +62,7 @@ title: Lifetimes saved
         <div class="kicker">Case {{ c.number | prepend: '00' | slice: -3, 3 }} · fix difficulty: {{ c.difficulty }}{% if c.todo %}<span class="card-todo">TODO</span>{% endif %}</div>
         <h3>{{ c.title }}</h3>
       </div>
-      {% if c.oneoff %}<div class="card-metric proof-metric">PROOF<small>the anchor case</small></div>{% elsif c.micro %}<div class="card-metric proof-metric">MICRO<small>{{ c.micro_line }}</small></div>{% else %}<div class="card-metric">~{% include num.html n=c.lifetimes.headline %}<small>lifetimes / yr</small></div>{% endif %}
+      {% if c.oneoff %}<div class="card-metric proof-metric">PROOF<small>the anchor case</small></div>{% elsif c.micro %}<div class="card-metric proof-metric">MICRO<small>{{ c.micro_line }}</small></div>{% else %}<div class="card-metric">{{ c.lifetimes.low }}<small>lifetimes / yr, at least</small></div>{% endif %}
     </div>
     <p class="tagline">{{ c.tagline }}</p>
     {% if c.platforms %}<div class="platform-tags">{% for p in c.platforms %}<span class="pill plat-{{ p | downcase }}">{{ p }}</span>{% endfor %}</div>{% endif %}

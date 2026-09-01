@@ -23,9 +23,12 @@ layout: default
     </div>
     {% else %}
     <div class="headline-metric">
-      <div class="metric-range">~{% include num.html n=page.lifetimes.headline %}</div>
+      <div class="metric-floor">At least</div>
+      <div class="metric-range">
+        <span class="lo">{{ page.lifetimes.low }}</span>
+      </div>
       <div class="metric-label">human lifetimes wasted per year</div>
-      <div class="metric-headline">middle estimate — the honest range is <strong>{% include num.html n=page.lifetimes.low %}–{% include num.html n=page.lifetimes.high %}</strong></div>
+      <div class="metric-headline">the low end of every assumption. Likely <strong>~{{ page.lifetimes.headline }}</strong>, up to <strong>{{ page.lifetimes.high }}</strong>.</div>
     </div>
     {% endif %}
 
@@ -97,4 +100,12 @@ layout: default
   <section class="body">
     {{ content }}
   </section>
+
+  <!-- The napkin is the argument, so it has to be checkable. This links the
+       exact file the page was rendered from, not a repo root to go hunting in. -->
+  <p class="case-source">
+    <a href="{{ site.repo }}/blob/main/{{ page.path }}" rel="noopener">
+      Read this case's source &mdash; <code>{{ page.path }}</code>
+    </a>
+  </p>
 </article>

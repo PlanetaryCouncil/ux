@@ -7,7 +7,7 @@ title: Methodology
 
 # The napkin, and the rules it follows
 
-Every case answers one question: **how many human lifetimes does this paper-cut waste per year?**
+Every case answers one question: **how many human lifetimes does this waste per year?**
 
 The formula is deliberately simple enough to fit on a napkin:
 
@@ -23,8 +23,12 @@ If a number is knowable, we look it up and use the real value. Chrome has ~3.8 b
 **2. Conservatism belongs only on the unknowns.**
 Some numbers genuinely can't be measured — what fraction of people hit a bug daily, how many seconds each instance costs. There, we pick low, round, *imaginable* figures. Anyone can picture 1%. Anyone can picture once a day. The safety margin lives here, in the assumptions, where it's labelled — never smuggled into the facts.
 
-**3. Every estimate carries a low and a high.**
-Unknowns aren't single numbers, they're ranges. Each case shows a **low → likely → high** band, so the headline figure is honestly a floor with a ceiling, not false precision. When the low estimate alone still shocks, the case is made.
+**3. Every estimate carries a low and a high — and we publish the low.**
+Unknowns aren't single numbers, they're ranges, so each case shows a **low → likely → high** band. The figure on the front of every case, and the total on the home page, is the **low** one: the smallest number the assumptions can support, added up.
+
+That is the whole point of leading with it. A range invites an argument about which end is real, and a "best estimate" invites the accusation that we picked it to impress. A floor invites neither. Take any assumption on this site, push it to the most sceptical value we thought defensible, and the published number still stands — because that value is already the one printed. The likely and high figures are shown underneath, but they never carry the claim.
+
+It costs us. The honest midpoint is roughly double the floor and the ceiling is several times it, so the site systematically understates what it believes. That is the correct trade: a number nobody can argue down is worth more than a bigger one that invites the argument.
 
 **4. Second-order effects are directional, not precise.**
 Frustration cascades, abandonment, defensive workarounds — these are real and they only ever push the number *up*. We list them as "this makes it worse," never as a fake decimal.
@@ -39,6 +43,12 @@ the page rather than quietly omitted.
 This isn't an apology for incomplete work. It's the same rule as the rest: a reader should be able
 to see exactly how much weight each number can bear. A case that hides its weak joint is worth less
 than one that points at it.
+
+## Sending your own
+
+It takes about a minute. Say what went wrong in a sentence, add a screenshot if you have one, and send it — GitHub, Telegram, Twitter or email, whichever you are already logged into.
+
+**You do not need the maths.** We work the numbers out. A real problem nobody has written down is worth more than a neat calculation of one already on the list.
 
 ## And one more column: difficulty to fix
 

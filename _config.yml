@@ -1,14 +1,29 @@
 title: Ministry of Fixing Civilisation
-tagline: One tiny UX fix. Thousands of human years. Every day.
+tagline: One small fix. Thousands of human years. Every day.
 description: >-
-  A metric — lifetimes saved — for the UI/UX paper-cuts of civilisation.
-  Every case is one back-of-a-napkin calculation: facts cited, assumptions
-  explicit, difficulty-to-fix honest.
+  How much of everyone's life is wasted by small problems on our screens,
+  counted in human lifetimes per year. Simple sums, sources shown, and an
+  honest guess at how hard each one would be to fix.
 
 # Served from a custom subdomain root, so baseurl is empty.
-# (It would be "/lifetimes" only if served from username.github.io/lifetimes.)
+# (It would be "/ux" only if served from planetarycouncil.github.io/ux.)
 baseurl: ""
-url: "https://lifetimes.planetarycouncil.org"
+# Must match CNAME. It feeds canonical, og:url and og:image on every page, so a
+# stale value here points search engines and link previews at a dead host while
+# the site itself serves fine — nothing on the page looks wrong.
+url: "https://ux.planetarycouncil.org"
+repo: "https://github.com/PlanetaryCouncil/ux"
+
+# Where people can send an example. Each link renders only when it has a value,
+# so an unset channel is absent rather than broken — add a handle here and it
+# appears on the site and in the footer with no other edit.
+contact:
+  github: "https://github.com/PlanetaryCouncil/ux/issues/new"
+  email: "PlanetaryCouncilHQ@gmail.com"
+  # Liquid treats "" as true, so a blank value renders a dead link. The templates
+  # test for non-empty; leave a channel commented out rather than blank.
+  twitter: "https://x.com/PlanetCouncil"
+  telegram: "https://t.me/PlanetaryCouncil"
 
 collections:
   cases:
