@@ -1,8 +1,8 @@
 ---
 number: 2
 title: "YouTube can't agree with itself on how long your video is"
-tagline: "Upload a video. The upload dialog says 4:21. The watch page says 4:20. Encode it shorter and other surfaces say 4:19. There is no length you can encode that every surface displays the same way — and YouTube's own transcoder produces three different durations from one file."
-quirk_line: "One file. Three durations in the metadata. No encode that displays consistently. QED."
+tagline: "One video. One page in YouTube Studio. The list thumbnail says 4:20 and the preview player beside it says 4:21 — at the same moment, about the same file. There is no length you can encode that makes every surface agree, and now you don't even need two screenshots to prove it."
+quirk_line: "4:20 and 4:21, same page, same file, same second."
 vendor: "YouTube"
 ---
 
@@ -58,6 +58,41 @@ There is no correct way to encode this video. Not "hard to get right" — **math
 The uploader who tests first, finds the bug, and applies the exactly-correct workaround is rewarded
 with the same bug wearing a different number.
 
+## Round three: both numbers, one screen
+
+The final form arrived when the real video went public. No second screenshot, no switching tabs,
+no “trust me, the other surface said something different.” **One page of YouTube Studio**, and
+the contradiction is sitting in it twice:
+
+![YouTube Studio Video details page: the channel-content thumbnail on the left is badged 4:20 while the preview player on the right reads 0:00 / 4:21 — same video, same page](/images/quirks/002-youtube-round3-one-screen.png)
+
+The list thumbnail in the left rail and the preview player in the right rail, side by side, on
+the same screen, about the same upload:
+
+![Detail: the thumbnail badge reads 4:20; the player readout beside it reads 0:00 / 4:21](/images/quirks/002-youtube-round3-detail.png)
+
+And the metadata behind that page finishes the argument. Pulling the durations YouTube stores for
+[this upload](https://youtu.be/MGgz4cKPHp8):
+
+| What | Value |
+|---|---|
+| canonical `lengthSeconds` | `260` |
+| stream A `approxDurationMs` | `259999` |
+| stream B | `260000` |
+| stream C | `260041` |
+| stream D | `260063` |
+
+Look at stream B. It is **exactly 260000 ms** — precisely the 4:20.000 that round two identified
+as the only value that could satisfy every rounding rule at once. The impossible target was hit.
+And it changed nothing, because YouTube does not store *one* duration: the sibling streams of that
+same upload are one millisecond **short** (259999, which truncates to 4:19) and sixty-three
+milliseconds **long** (260063, which rounds up to 4:21). Whichever stream a surface consults, and
+whichever direction it rounds, is what you get.
+
+So round two was too kind. The conclusion isn’t just that the correct encode is unreachable —
+it’s that **the correct encode does not help**. There is no single number to be right about,
+because the platform keeps four of them.
+
 ## Bonus quirk, free with purchase
 
 Write "Duration 4:20" in the description — a reasonable thing to note, under the circumstances —
@@ -70,6 +105,7 @@ hijacked by the duration, and points at a moment that does not exist.
 ## Why it's a quirk, not a case
 
 The seconds lost are real but tiny, and mostly paid by people chasing round numbers. What earns it
-a spot is the contradiction: a platform this size showing **two different durations for one file**
-— and, on inspection, *storing three* — because nobody decided, once, platform-wide, how to round
-half a second. The fix is one line: pick a rounding rule. Any of them. Just once.
+a spot is the contradiction: a platform this size showing **two different durations for one file,
+simultaneously, on a single screen** — and, on inspection, *storing four* — because nobody decided,
+once, platform-wide, how to round a fraction of a second. The fix is one line: pick a rounding
+rule, apply it to the canonical duration, and let every surface read that. Any rule. Just once.
