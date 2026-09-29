@@ -18,9 +18,10 @@ device.
 
 ## The same root as a real case
 
-This is the quiet version of [case 032](/cases/032-no-next-reel-on-desktop/): Instagram's desktop
+This is the quiet version of [case 032](/cases/032-reels-have-no-progress-bar/): Instagram's desktop
 client isn't a client, it's a **partial rendering** of one. Case 032 is the part that costs
-measurable time — no next reel, so you go back and click. This one costs almost none, and is
+measurable time — no seek bar, so you rewatch the whole reel to reach a moment. This one costs
+almost none, and is
 arguably worse, because it doesn't waste your time so much as **misinform you about your own
 content**. A missing button is visible. Missing metadata looks exactly like metadata that was never
 there.
